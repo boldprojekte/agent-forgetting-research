@@ -1,0 +1,54 @@
+{
+  "graded_at": "2026-09-19T17:07:45.759026+00:00",
+  "candidate": "/home/jan/workspace/agent-forgetting-research/runs/otel-checkout-noise-03-method/workspace",
+  "build_exit_code": 0,
+  "source_audit": {
+    "signal_waiting": true,
+    "bounded_server_shutdown": false,
+    "sdk_providers_retained": true,
+    "telemetry_shutdown": true,
+    "shared_remaining_budget": false,
+    "exec_entrypoint": true,
+    "report": true
+  },
+  "startup_failure_probe": {
+    "ready": true,
+    "exit_code": null,
+    "passed": false,
+    "startup_output": "5e3cdf2c988f3bfa22f679b66ae0c72865d6a09d87d6448cef3aadacde0c7ca3\n",
+    "probe_output": "conflicting startup timed out: Command '['docker', 'exec', 'otel-currency-shutdown-grader', '/usr/local/bin/currency', '7002']' timed out after 30 seconds"
+  },
+  "signal_probes": [
+    {
+      "signal": "SIGTERM",
+      "ready": true,
+      "pid_one": "currency",
+      "elapsed_seconds": 8.43037632497726,
+      "exit_code": 0,
+      "passed": true,
+      "startup_output": "377d18ae685425db9c48037953be605febbb059f02578597d4145b8630bb2bf3\n",
+      "signal_output": "otel-currency-shutdown-grader"
+    },
+    {
+      "signal": "SIGINT",
+      "ready": true,
+      "pid_one": "currency",
+      "elapsed_seconds": 8.854455832974054,
+      "exit_code": 0,
+      "passed": true,
+      "startup_output": "c352af69c00f1f9d458f917a71f75e795b70776e054cd5db4ec2589ab744fe90\n",
+      "signal_output": "otel-currency-shutdown-grader"
+    }
+  ],
+  "criteria": {
+    "startup-failure": false,
+    "signals": true,
+    "bounded-server": false,
+    "telemetry": false,
+    "entrypoint": true,
+    "followup-report": true
+  },
+  "criteria_passed": 3,
+  "criteria_total": 6,
+  "passed": false
+}

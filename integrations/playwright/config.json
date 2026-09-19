@@ -1,0 +1,7 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "launchOptions": {"chromiumSandbox": true},
+    "contextOptions": {"viewport": {"width": 1000, "height": 700}}
+  }
+}

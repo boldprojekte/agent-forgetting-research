@@ -1,0 +1,325 @@
+{
+  "generated_at": "2026-09-19T17:10:29.605659+00:00",
+  "experiment": "otel-checkout-noise-03",
+  "design": "single sequential paired run with same-session task pivot",
+  "frozen_snapshot_tree_hash": "06441711fdf3e409653d804f8c3e09b95168dc64e3c73a6873908517df76c767",
+  "preflight": {
+    "currency_baseline_criteria": "0/6",
+    "currency_gold_criteria": "6/6",
+    "primary_baseline": "failed hidden oracle",
+    "primary_gold": "2/2 hidden oracle",
+    "excluded_development_run": "runs/otel-checkout-noise-02-retained"
+  },
+  "arms": {
+    "retained": {
+      "primary": {
+        "termination": "submitted",
+        "steps": 77,
+        "requests_cumulative": 77,
+        "provider_attempts_cumulative": 77,
+        "context_transitions_cumulative": 0,
+        "recoveries_cumulative": 0,
+        "prompt_tokens_cumulative": 7204660,
+        "completion_tokens_cumulative": 14815,
+        "reasoning_tokens_cumulative": 4563,
+        "cached_prompt_tokens_cumulative": 4011840,
+        "final_prompt_tokens": 847674,
+        "peak_prompt_tokens": 847674,
+        "request_chars_cumulative": 68505690,
+        "max_request_chars": 4508398,
+        "archive_entries": 0,
+        "archive_original_text_chars": 0,
+        "archive_original_images": 0,
+        "archive_notes_chars": 0,
+        "archive_file_bytes": 3743,
+        "estimated_cost_usd_lower": 0.8455822,
+        "estimated_cost_usd_upper": 0.8465635
+      },
+      "final": {
+        "termination": "submitted",
+        "steps": 44,
+        "requests_cumulative": 121,
+        "provider_attempts_cumulative": 121,
+        "context_transitions_cumulative": 0,
+        "recoveries_cumulative": 0,
+        "prompt_tokens_cumulative": 45766146,
+        "completion_tokens_cumulative": 33834,
+        "reasoning_tokens_cumulative": 12200,
+        "cached_prompt_tokens_cumulative": 31939072,
+        "final_prompt_tokens": 912492,
+        "peak_prompt_tokens": 912492,
+        "request_chars_cumulative": 272055401,
+        "max_request_chars": 4767539,
+        "archive_entries": 0,
+        "archive_original_text_chars": 0,
+        "archive_original_images": 0,
+        "archive_notes_chars": 0,
+        "archive_file_bytes": 5843,
+        "estimated_cost_usd_lower": 4.3783041,
+        "estimated_cost_usd_upper": 4.3792854
+      },
+      "followup_increment": {
+        "steps": 44,
+        "prompt_tokens": 38561486,
+        "completion_tokens": 19019,
+        "requests": 44,
+        "context_transitions": 0
+      },
+      "timing": {
+        "primary_seconds": 600.3840229511261,
+        "followup_seconds": 1129.8991332054138,
+        "total_seconds": 1730.28315615654,
+        "tool_calls_total": 134
+      },
+      "primary_grade": {
+        "build": true,
+        "hidden_cases_passed": 2,
+        "hidden_cases_total": 2,
+        "overall": true
+      },
+      "followup_grade": {
+        "build": true,
+        "criteria": {
+          "startup-failure": true,
+          "signals": false,
+          "bounded-server": false,
+          "telemetry": false,
+          "entrypoint": false,
+          "followup-report": true
+        },
+        "criteria_passed": 2,
+        "criteria_total": 6,
+        "overall": false,
+        "source_audit": {
+          "signal_waiting": false,
+          "bounded_server_shutdown": false,
+          "sdk_providers_retained": true,
+          "telemetry_shutdown": true,
+          "shared_remaining_budget": false,
+          "exec_entrypoint": true,
+          "report": true
+        },
+        "startup_failure_probe": {
+          "ready": true,
+          "exit_code": 1,
+          "passed": true,
+          "startup_output": "03113b71ff68cea8f405431ab6942dd36fb2fcfecfc63718e6d412999db1c661\n",
+          "probe_output": "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nE0000 00:00:1789835335.791482      47 add_port.cc:83] Failed to add port to server: No address added out of total 1 resolved for '0.0.0.0:7002'\ncurrency server failed to start on 0.0.0.0:7002\n[Error] File: /opentelemetry-cpp/exporters/otlp/src/otlp_grpc_log_record_exporter.cc:183 [OTLP LOG GRPC Exporter] Export() failed: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:4317: Failed to connect to remote host: Connection refused\n"
+        },
+        "signal_probes": [
+          {
+            "signal": "SIGTERM",
+            "ready": true,
+            "pid_one": "currency",
+            "elapsed_seconds": 12.241245298006106,
+            "exit_code": 137,
+            "passed": false,
+            "startup_output": "a1841aa71519346ad4432ba783bc3bc9f8f8b1d63c4173f57c619fb09820f8a5\n",
+            "signal_output": "otel-currency-shutdown-grader"
+          },
+          {
+            "signal": "SIGINT",
+            "ready": true,
+            "pid_one": "currency",
+            "elapsed_seconds": 12.078532877960242,
+            "exit_code": 137,
+            "passed": false,
+            "startup_output": "93df4fd8484cd9caa0cf75f02098fc8eef6f153d7f44ee85ded9e0640e97ab01\n",
+            "signal_output": "otel-currency-shutdown-grader"
+          }
+        ]
+      },
+      "archive_integrity": {
+        "exact_matches": 0,
+        "mismatches": []
+      },
+      "cost_accounting": {
+        "status": "estimated",
+        "complete": true,
+        "responses": 121,
+        "tokens_reported": {
+          "input_tokens": 45766146,
+          "output_tokens": 33834,
+          "reasoning_tokens_reported": 12200,
+          "cached_input_tokens": 31939072,
+          "unknown_cache_input_tokens": 6542
+        },
+        "estimated_cost_usd_lower": 4.3783041,
+        "estimated_cost_usd_upper": 4.3792854,
+        "image_accounting": {
+          "logical_request_image_occurrences": 275,
+          "separate_image_tokens": null,
+          "separate_image_cost_usd": null
+        }
+      }
+    },
+    "method": {
+      "primary": {
+        "termination": "submitted",
+        "steps": 93,
+        "requests_cumulative": 93,
+        "provider_attempts_cumulative": 93,
+        "context_transitions_cumulative": 5,
+        "recoveries_cumulative": 0,
+        "prompt_tokens_cumulative": 6085314,
+        "completion_tokens_cumulative": 27764,
+        "reasoning_tokens_cumulative": 9174,
+        "cached_prompt_tokens_cumulative": 5096000,
+        "final_prompt_tokens": 124746,
+        "peak_prompt_tokens": 381299,
+        "request_chars_cumulative": 24900968,
+        "max_request_chars": 1698873,
+        "archive_entries": 10,
+        "archive_original_text_chars": 2152037,
+        "archive_original_images": 0,
+        "archive_notes_chars": 5308,
+        "archive_file_bytes": 2775098,
+        "estimated_cost_usd_lower": 0.38957995,
+        "estimated_cost_usd_upper": 0.4665448
+      },
+      "final": {
+        "termination": "submitted",
+        "steps": 92,
+        "requests_cumulative": 185,
+        "provider_attempts_cumulative": 185,
+        "context_transitions_cumulative": 9,
+        "recoveries_cumulative": 0,
+        "prompt_tokens_cumulative": 22988240,
+        "completion_tokens_cumulative": 71919,
+        "reasoning_tokens_cumulative": 32438,
+        "cached_prompt_tokens_cumulative": 21318208,
+        "final_prompt_tokens": 231951,
+        "peak_prompt_tokens": 381299,
+        "request_chars_cumulative": 92379088,
+        "max_request_chars": 1698873,
+        "archive_entries": 26,
+        "archive_original_text_chars": 2247229,
+        "archive_original_images": 0,
+        "archive_notes_chars": 9709,
+        "archive_file_bytes": 2889311,
+        "estimated_cost_usd_lower": 1.28278825,
+        "estimated_cost_usd_upper": 1.4358763
+      },
+      "followup_increment": {
+        "steps": 92,
+        "prompt_tokens": 16902926,
+        "completion_tokens": 44155,
+        "requests": 92,
+        "context_transitions": 4
+      },
+      "timing": {
+        "primary_seconds": 957.7225894927979,
+        "followup_seconds": 1066.9496183395386,
+        "total_seconds": 2024.6722078323364,
+        "tool_calls_total": 196
+      },
+      "primary_grade": {
+        "build": true,
+        "hidden_cases_passed": 2,
+        "hidden_cases_total": 2,
+        "overall": true
+      },
+      "followup_grade": {
+        "build": true,
+        "criteria": {
+          "startup-failure": false,
+          "signals": true,
+          "bounded-server": false,
+          "telemetry": false,
+          "entrypoint": true,
+          "followup-report": true
+        },
+        "criteria_passed": 3,
+        "criteria_total": 6,
+        "overall": false,
+        "source_audit": {
+          "signal_waiting": true,
+          "bounded_server_shutdown": false,
+          "sdk_providers_retained": true,
+          "telemetry_shutdown": true,
+          "shared_remaining_budget": false,
+          "exec_entrypoint": true,
+          "report": true
+        },
+        "startup_failure_probe": {
+          "ready": true,
+          "exit_code": null,
+          "passed": false,
+          "startup_output": "5e3cdf2c988f3bfa22f679b66ae0c72865d6a09d87d6448cef3aadacde0c7ca3\n",
+          "probe_output": "conflicting startup timed out: Command '['docker', 'exec', 'otel-currency-shutdown-grader', '/usr/local/bin/currency', '7002']' timed out after 30 seconds"
+        },
+        "signal_probes": [
+          {
+            "signal": "SIGTERM",
+            "ready": true,
+            "pid_one": "currency",
+            "elapsed_seconds": 8.43037632497726,
+            "exit_code": 0,
+            "passed": true,
+            "startup_output": "377d18ae685425db9c48037953be605febbb059f02578597d4145b8630bb2bf3\n",
+            "signal_output": "otel-currency-shutdown-grader"
+          },
+          {
+            "signal": "SIGINT",
+            "ready": true,
+            "pid_one": "currency",
+            "elapsed_seconds": 8.854455832974054,
+            "exit_code": 0,
+            "passed": true,
+            "startup_output": "c352af69c00f1f9d458f917a71f75e795b70776e054cd5db4ec2589ab744fe90\n",
+            "signal_output": "otel-currency-shutdown-grader"
+          }
+        ]
+      },
+      "archive_integrity": {
+        "exact_matches": 26,
+        "mismatches": []
+      },
+      "cost_accounting": {
+        "status": "estimated",
+        "complete": true,
+        "responses": 185,
+        "tokens_reported": {
+          "input_tokens": 22988240,
+          "output_tokens": 71919,
+          "reasoning_tokens_reported": 32438,
+          "cached_input_tokens": 21318208,
+          "unknown_cache_input_tokens": 1020587
+        },
+        "estimated_cost_usd_lower": 1.28278825,
+        "estimated_cost_usd_upper": 1.4358763,
+        "image_accounting": {
+          "logical_request_image_occurrences": 0,
+          "separate_image_tokens": 0,
+          "separate_image_cost_usd": 0
+        }
+      }
+    }
+  },
+  "comparison_method_vs_retained": {
+    "primary_final_prompt_tokens_delta": -722928,
+    "primary_final_prompt_tokens_percent": -85.28372935822026,
+    "final_prompt_tokens_delta": -680541,
+    "final_prompt_tokens_percent": -74.58048947278442,
+    "overall_peak_prompt_tokens_delta": -531193,
+    "overall_peak_prompt_tokens_percent": -58.2134418712712,
+    "total_prompt_tokens_delta": -22777906,
+    "total_prompt_tokens_percent": -49.770207873741434,
+    "total_tokens_delta": -22739821,
+    "total_tokens_percent": -49.650285873487285,
+    "request_chars_percent": -66.0440161597821,
+    "requests_delta": 64,
+    "requests_percent": 52.892561983471076,
+    "estimated_cost_lower_percent": -70.70125279785842,
+    "estimated_cost_upper_percent": -67.2120867025474,
+    "wall_time_percent": 17.01392345110264,
+    "followup_quality_criteria_delta": 1
+  },
+  "interpretation_limits": [
+    "One stochastic pair; descriptive, not a statistical estimate.",
+    "Both arms fully passed the primary oracle; neither arm fully passed the follow-up oracle.",
+    "The method passed one additional follow-up criterion and functional signal probes, but failed startup-failure handling and the shared shutdown budget.",
+    "Costs are tariff estimates from provider-reported usage, not invoices.",
+    "The retained arm included 275 logical image occurrences; the provider reports aggregate prompt usage and no separate image-token accounting."
+  ]
+}

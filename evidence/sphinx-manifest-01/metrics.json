@@ -1,0 +1,116 @@
+[
+  {
+    "session": "sphinx-manifest-01-01-retained",
+    "arm": "retained",
+    "phases": [
+      "10/11",
+      "19/20",
+      "23/24"
+    ],
+    "last": 267349,
+    "peak": 267349,
+    "total": 15946799,
+    "lower": 1.0048462,
+    "upper": 1.0507816,
+    "requests": 116,
+    "transitions": 0,
+    "failures": [
+      [
+        "titleless"
+      ]
+    ]
+  },
+  {
+    "session": "sphinx-manifest-01-02-method",
+    "arm": "method",
+    "phases": [
+      "11/11",
+      "20/20",
+      "24/24"
+    ],
+    "last": 89855,
+    "peak": 102016,
+    "total": 8286503,
+    "lower": 0.79371475,
+    "upper": 0.8222848,
+    "requests": 152,
+    "transitions": 42,
+    "failures": []
+  },
+  {
+    "session": "sphinx-manifest-01-03-method",
+    "arm": "method",
+    "phases": [
+      "11/11",
+      "20/20",
+      "24/24"
+    ],
+    "last": 145213,
+    "peak": 156841,
+    "total": 16849371,
+    "lower": 1.48256805,
+    "upper": 1.5252759,
+    "requests": 209,
+    "transitions": 70,
+    "failures": []
+  },
+  {
+    "session": "sphinx-manifest-01-04-retained",
+    "arm": "retained",
+    "phases": [
+      "11/11",
+      "20/20",
+      "24/24"
+    ],
+    "last": 268937,
+    "peak": 268937,
+    "total": 20217639,
+    "lower": 1.2427749,
+    "upper": 1.2863115,
+    "requests": 136,
+    "transitions": 0,
+    "failures": []
+  },
+  {
+    "session": "sphinx-manifest-01-05-retained",
+    "arm": "retained",
+    "phases": [
+      "10/11",
+      "19/20",
+      "23/24"
+    ],
+    "last": 234057,
+    "peak": 234057,
+    "total": 12273223,
+    "lower": 0.79981385,
+    "upper": 0.8560142,
+    "requests": 98,
+    "transitions": 0,
+    "failures": [
+      [
+        "titleless"
+      ]
+    ]
+  },
+  {
+    "session": "sphinx-manifest-01-06-method",
+    "arm": "method",
+    "phases": [
+      "10/11",
+      "19/20",
+      "23/24"
+    ],
+    "last": 123258,
+    "peak": 135257,
+    "total": 12995595,
+    "lower": 1.1292654,
+    "upper": 1.2040935,
+    "requests": 192,
+    "transitions": 56,
+    "failures": [
+      [
+        "titleless"
+      ]
+    ]
+  }
+]

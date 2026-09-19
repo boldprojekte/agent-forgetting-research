@@ -1,0 +1,37 @@
+[project]
+name = "forgetting-agent"
+version = "0.1.0"
+description = "Minimal research agent for agent-controlled context selection (set aside / recover) over a local text corpus."
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.50",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp==2.2.0"]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+forgetting-agent = "forgetting_agent.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["forgetting_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]

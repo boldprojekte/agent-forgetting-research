@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-19",
+  "status": "local candidate; not published",
+  "author": "Jan-Peter Franke",
+  "contact": "franke@bold-projekte.com",
+  "pdf_pages": 12,
+  "pdf_sha256": "363052482e9ace1cf1ea4bfeb00fa4c57ee28acf10a789d6cd553006d3f3e9bc",
+  "source_zip_sha256": "f19d34ef3ab30d082ebddc4561a73ad0466fdb2b93c7a4c9435f62918021bda9",
+  "visual_review": "all 12 pages inspected; pages 6\u201312 rechecked after figure pagination adjustment",
+  "independent_source_build": "passed; extracted PDF text identical",
+  "focused_offline_tests_passed": 28,
+  "frozen_input_hashes_verified": 37,
+  "usage_rows_verified": 306,
+  "references": 12,
+  "live_clean_host_reproduction": false,
+  "new_inference_runs": 0,
+  "revision": "author-requested editorial review revision",
+  "focused_offline_tests_note": "28 passed during initial packaging; harness unchanged by this prose revision",
+  "arithmetic_recheck": "37 frozen hashes and 306 usage rows passed after revision"
+}

@@ -1,0 +1,45 @@
+# Copyright The OpenTelemetry Authors
+# SPDX-License-Identifier: Apache-2.0
+
+defmodule FlagdUiWeb.Components.Navbar do
+  use FlagdUiWeb, :html
+
+  attr :mode, :string, default: "basic", doc: "the view currently displaying"
+
+  def navbar(assigns) do
+    ~H"""
+    <nav class="bg-gray-800 p-4 sm:p-6">
+      <div class="container mx-auto flex items-center justify-between">
+        <.link navigate={~p"/"} class="text-xl font-bold text-white">
+          Flagd Configurator
+        </.link>
+        <ul class="flex space-x-2 sm:space-x-4">
+          <li>
+            <.link navigate={~p"/"} class={classes("basic", @mode)}>
+              Basic
+            </.link>
+          </li>
+          <li>
+            <.link navigate={~p"/advanced"} class={classes("advanced", @mode)}>
+              Advanced
+            </.link>
+          </li>
+          <li>
+            <.link navigate={~p"/scheduler"} class={classes("scheduler", @mode)}>
+              Scheduler
+            </.link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    """
+  end
+
+  defp classes(route, route),
+    do:
+      "rounded-md px-3 py-2 text-sm font-medium bg-blue-700 text-white underline underline-offset-4 transition-all duration-200"
+
+  defp classes(_, _),
+    do:
+      "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-200"
+end

@@ -1,0 +1,23 @@
+# Local-only benchmark overrides. The agent never receives this file.
+services:
+  checkout:
+    image: agent-forgetting/otel-checkout:checkout-noise-01
+
+  frontend:
+    image: agent-forgetting/otel-frontend:checkout-noise-01
+
+  payment:
+    image: agent-forgetting/otel-payment:checkout-noise-01
+
+  frontend-proxy:
+    ports: !override
+      - "127.0.0.1:18080:8080"
+      - "127.0.0.1:19000:10000"
+
+  prometheus:
+    ports: !override
+      - "127.0.0.1:19090:9090"
+
+  opensearch:
+    ports: !override
+      - "127.0.0.1:19200:9200"

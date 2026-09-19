@@ -1,0 +1,3 @@
+services:
+  currency:
+    image: agent-forgetting/otel-currency:checkout-noise-01

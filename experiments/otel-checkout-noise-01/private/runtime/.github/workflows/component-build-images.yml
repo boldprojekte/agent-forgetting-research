@@ -1,0 +1,309 @@
+# Copyright The OpenTelemetry Authors
+# SPDX-License-Identifier: Apache-2.0
+
+name: Component build images
+
+on:
+  workflow_call:
+    inputs:
+      push:
+        description: Should the images be pushed
+        default: false
+        required: false
+        type: boolean
+      force_build:
+        description: Build all images regardless of detected changes
+        default: false
+        required: false
+        type: boolean
+      version:
+        description: The version used when tagging the image
+        default: 'dev'
+        required: false
+        type: string
+      dockerhub_repo:
+        description: Docker Hub repository
+        default: 'otel/demo'
+        required: false
+        type: string
+      ghcr_repo:
+        description: GHCR repository
+        default: 'ghcr.io/open-telemetry/demo'
+        required: false
+        type: string
+    secrets:
+      DOCKER_USERNAME:
+        required: false
+      DOCKER_PASSWORD:
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  protobufcheck:
+    name: Check protobuf generated files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Generate
+        run: make clean docker-generate-protobuf
+      - name: Check clean work tree
+        run: make check-clean-work-tree
+
+  build_and_push_images:
+    name: Build and push ${{ matrix.file_tag.tag_suffix }} image
+    runs-on: ubuntu-latest
+    needs: protobufcheck
+
+    permissions:
+      contents: read  # required to read Dockerfiles and source files
+      packages: write  # required to push built images to GHCR
+
+    env:
+      RELEASE_VERSION: "${{ github.event.release.tag_name }}"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        file_tag:
+          - file: ./src/accounting/Dockerfile
+            tag_suffix: accounting
+            context: ./
+            setup-qemu: true
+          - file: ./src/ad/Dockerfile
+            tag_suffix: ad
+            context: ./
+            setup-qemu: true
+          - file: ./src/agent/Dockerfile
+            tag_suffix: agent
+            context: ./
+            setup-qemu: true
+          - file: ./src/cart/src/Dockerfile
+            tag_suffix: cart
+            context: ./
+            setup-qemu: false
+          - file: ./src/chatbot/Dockerfile
+            tag_suffix: chatbot
+            context: ./
+            setup-qemu: true
+          - file: ./src/checkout/Dockerfile
+            tag_suffix: checkout
+            context: ./
+            setup-qemu: true
+          - file: ./src/currency/Dockerfile
+            tag_suffix: currency
+            context: ./
+            setup-qemu: true
+          - file: ./src/email/Dockerfile
+            tag_suffix: email
+            context: ./
+            setup-qemu: true
+          - file: ./src/flagd-ui/Dockerfile
+            tag_suffix: flagd-ui
+            context: ./
+            setup-qemu: true
+          - file: ./src/fraud-detection/Dockerfile
+            tag_suffix: fraud-detection
+            context: ./
+            setup-qemu: true
+          - file: ./src/frontend/Dockerfile
+            tag_suffix: frontend
+            context: ./
+            setup-qemu: true
+          - file: ./src/frontend-proxy/Dockerfile
+            tag_suffix: frontend-proxy
+            context: ./
+            setup-qemu: true
+          - file: ./src/frontend/Dockerfile.cypress
+            tag_suffix: frontend-tests
+            context: ./
+            setup-qemu: true
+          - file: ./src/image-provider/Dockerfile
+            tag_suffix: image-provider
+            context: ./
+            setup-qemu: true
+          - file: ./src/kafka/Dockerfile
+            tag_suffix: kafka
+            context: ./
+            setup-qemu: true
+          - file: ./src/load-generator/Dockerfile
+            tag_suffix: load-generator
+            context: ./
+            setup-qemu: true
+          - file: ./src/opamp-server/Dockerfile
+            tag_suffix: opamp-server
+            context: ./
+            setup-qemu: true
+          - file: ./src/mcp/Dockerfile
+            tag_suffix: mcp
+            context: ./
+            setup-qemu: true
+          - file: ./src/opensearch/Dockerfile
+            tag_suffix: opensearch
+            context: ./
+            setup-qemu: true
+          - file: ./src/payment/Dockerfile
+            tag_suffix: payment
+            context: ./
+            setup-qemu: true
+          - file: ./src/product-catalog/Dockerfile
+            tag_suffix: product-catalog
+            context: ./
+            setup-qemu: true
+          - file: ./src/quote/Dockerfile
+            tag_suffix: quote
+            context: ./
+            setup-qemu: true
+          - file: ./src/recommendation/Dockerfile
+            tag_suffix: recommendation
+            context: ./
+            setup-qemu: true
+          - file: ./src/shipping/Dockerfile
+            tag_suffix: shipping
+            context: ./
+            setup-qemu: true
+          - file: ./src/telemetry-docs/Dockerfile
+            tag_suffix: telemetry-docs
+            context: ./
+            setup-qemu: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Load environment variables from .env file
+        run: |
+          if [ -f .env ]; then
+            # Filter out comments and empty lines, then add each variable to $GITHUB_ENV
+            grep -vE '^\s*#|^\s*$' .env | while read -r line; do
+              echo "$line" >> $GITHUB_ENV
+            done
+          else
+            echo ".env file not found!"
+            exit 1
+          fi
+      - name: Check for changes and set push options
+        id: check_changes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || github.event.before }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          DOCKER_CONTEXT: ${{ matrix.file_tag.context }}
+          DOCKERFILE: ${{ matrix.file_tag.file }}
+          FORCE_BUILD: ${{ inputs.force_build }}
+          HEAD_SHA: ${{ github.event.merge_group.head_sha || github.sha }}
+        run: |
+          DOCKERFILE_DIR=$(dirname "${DOCKERFILE}")
+          ZERO_SHA=0000000000000000000000000000000000000000
+
+          commit_exists() {
+            [ -n "$1" ] && [ "$1" != "$ZERO_SHA" ] && git cat-file -e "${1}^{commit}" 2>/dev/null
+          }
+
+          use_default_branch_merge_base() {
+            echo "Using merge base with ${DEFAULT_BRANCH}."
+            git fetch --no-tags origin "${DEFAULT_BRANCH}" || true
+            BASE_SHA=$(git merge-base "$HEAD_SHA" "origin/${DEFAULT_BRANCH}" || true)
+          }
+
+          if [ "$FORCE_BUILD" = true ]; then
+            echo "Force build is enabled, proceeding with build."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if ! commit_exists "$HEAD_SHA"; then
+            echo "Head SHA ${HEAD_SHA} is unavailable, using checked out HEAD."
+            HEAD_SHA=$(git rev-parse HEAD)
+          fi
+
+          case "${GITHUB_EVENT_NAME}" in
+            pull_request|merge_group)
+              if ! commit_exists "$BASE_SHA"; then
+                echo "Base SHA unavailable for ${GITHUB_EVENT_NAME}."
+                use_default_branch_merge_base
+              fi
+              ;;
+            push)
+              if [ "${GITHUB_REF_NAME}" = "${DEFAULT_BRANCH}" ]; then
+                if ! commit_exists "$BASE_SHA"; then
+                  echo "No usable base SHA available for default branch push, proceeding with build."
+                  echo "skip=false" >> "$GITHUB_OUTPUT"
+                  exit 0
+                fi
+              else
+                use_default_branch_merge_base
+              fi
+              ;;
+            *)
+              if ! commit_exists "$BASE_SHA"; then
+                echo "No usable base SHA available for ${GITHUB_EVENT_NAME}, proceeding with build."
+                echo "skip=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              ;;
+          esac
+
+          if ! commit_exists "$BASE_SHA"; then
+            echo "No usable base SHA available, proceeding with build."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          FILES_CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- "$DOCKERFILE_DIR")
+          if [ -z "$FILES_CHANGED" ]; then
+            echo "No changes in ${DOCKERFILE_DIR}, skipping build for ${DOCKERFILE}."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changes detected in ${DOCKERFILE_DIR}, proceeding with build for ${DOCKERFILE}."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Log in to container registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f  # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ github.token }}
+        if: ${{ steps.check_changes.outputs.skip == 'false' && inputs.push && !github.event.repository.fork }}
+      - name: Log in to Docker Hub
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f  # v4.6.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+        if: ${{ steps.check_changes.outputs.skip == 'false' && inputs.push && !github.event.repository.fork }}
+      - name: Set up QEMU
+        if: ${{ steps.check_changes.outputs.skip == 'false' && matrix.file_tag.setup-qemu }}
+        uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8  # v4.2.0
+        with:
+          image: tonistiigi/binfmt:master
+      - name: Set up Docker Buildx
+        if: steps.check_changes.outputs.skip == 'false'
+        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e  # v4.3.0
+        with:
+          buildkitd-config-inline: |
+            [worker.oci]
+            max-parallelism = 2
+      - name: Build and push demo images
+        if: steps.check_changes.outputs.skip == 'false'
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a  # v7.3.0
+        with:
+          context: ${{ matrix.file_tag.context }}
+          file: ${{ matrix.file_tag.file }}
+          platforms: linux/amd64,linux/arm64
+          push: ${{ inputs.push && !github.event.repository.fork }}
+          build-args: |
+            OTEL_JAVA_AGENT_VERSION=${{ env.OTEL_JAVA_AGENT_VERSION }}
+            OPENTELEMETRY_CPP_VERSION=${{ env.OPENTELEMETRY_CPP_VERSION }}
+            OPAMP_GO_REF=${{ env.OPAMP_GO_REF }}
+          tags: |
+            ${{ inputs.dockerhub_repo }}:${{ inputs.version }}-${{matrix.file_tag.tag_suffix }}
+            ${{ inputs.dockerhub_repo }}:latest-${{matrix.file_tag.tag_suffix }}
+            ${{ inputs.ghcr_repo }}:${{ inputs.version }}-${{ matrix.file_tag.tag_suffix }}
+            ${{ inputs.ghcr_repo }}:latest-${{ matrix.file_tag.tag_suffix }}
+          cache-from: type=gha,scope=${{ matrix.file_tag.tag_suffix }}
+          cache-to: type=gha,scope=${{ matrix.file_tag.tag_suffix }}

@@ -1,0 +1,54 @@
+{
+  "graded_at": "2026-09-19T16:29:28.814765+00:00",
+  "candidate": "/home/jan/workspace/agent-forgetting-research/runs/otel-checkout-noise-03-retained/workspace",
+  "build_exit_code": 0,
+  "source_audit": {
+    "signal_waiting": false,
+    "bounded_server_shutdown": false,
+    "sdk_providers_retained": true,
+    "telemetry_shutdown": true,
+    "shared_remaining_budget": false,
+    "exec_entrypoint": true,
+    "report": true
+  },
+  "startup_failure_probe": {
+    "ready": true,
+    "exit_code": 1,
+    "passed": true,
+    "startup_output": "03113b71ff68cea8f405431ab6942dd36fb2fcfecfc63718e6d412999db1c661\n",
+    "probe_output": "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nE0000 00:00:1789835335.791482      47 add_port.cc:83] Failed to add port to server: No address added out of total 1 resolved for '0.0.0.0:7002'\ncurrency server failed to start on 0.0.0.0:7002\n[Error] File: /opentelemetry-cpp/exporters/otlp/src/otlp_grpc_log_record_exporter.cc:183 [OTLP LOG GRPC Exporter] Export() failed: failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:4317: Failed to connect to remote host: Connection refused\n"
+  },
+  "signal_probes": [
+    {
+      "signal": "SIGTERM",
+      "ready": true,
+      "pid_one": "currency",
+      "elapsed_seconds": 12.241245298006106,
+      "exit_code": 137,
+      "passed": false,
+      "startup_output": "a1841aa71519346ad4432ba783bc3bc9f8f8b1d63c4173f57c619fb09820f8a5\n",
+      "signal_output": "otel-currency-shutdown-grader"
+    },
+    {
+      "signal": "SIGINT",
+      "ready": true,
+      "pid_one": "currency",
+      "elapsed_seconds": 12.078532877960242,
+      "exit_code": 137,
+      "passed": false,
+      "startup_output": "93df4fd8484cd9caa0cf75f02098fc8eef6f153d7f44ee85ded9e0640e97ab01\n",
+      "signal_output": "otel-currency-shutdown-grader"
+    }
+  ],
+  "criteria": {
+    "startup-failure": true,
+    "signals": false,
+    "bounded-server": false,
+    "telemetry": false,
+    "entrypoint": false,
+    "followup-report": true
+  },
+  "criteria_passed": 2,
+  "criteria_total": 6,
+  "passed": false
+}

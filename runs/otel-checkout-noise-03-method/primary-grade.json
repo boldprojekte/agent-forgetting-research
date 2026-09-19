@@ -1,0 +1,8 @@
+{
+  "graded_at": "2026-09-19T17:06:48.880780+00:00",
+  "candidate": "/home/jan/workspace/agent-forgetting-research/runs/otel-checkout-noise-03-method/workspace",
+  "oracle": "/home/jan/workspace/agent-forgetting-research/experiments/otel-checkout-noise-01/private/grader/CheckoutPaymentFailure.cy.ts",
+  "build_exit_code": 0,
+  "test_exit_code": 0,
+  "passed": true
+}

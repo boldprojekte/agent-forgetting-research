@@ -1,0 +1,26 @@
+# Copyright The OpenTelemetry Authors
+# SPDX-License-Identifier: Apache-2.0
+name: Nightly Release
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  build_and_push_images:
+    permissions:  # required by the reusable workflow
+      contents: read  # required by the component-build-images reusable workflow
+      packages: write  # required to push built images to GHCR
+    uses: ./.github/workflows/component-build-images.yml
+    if: ${{ !github.event.repository.fork }}
+    with:
+      push: true
+      force_build: true
+      version: nightly
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

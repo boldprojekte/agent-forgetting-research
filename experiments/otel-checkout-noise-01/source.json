@@ -1,0 +1,33 @@
+{
+  "upstream": "https://github.com/open-telemetry/opentelemetry-demo",
+  "license": "Apache-2.0",
+  "release_checked": {
+    "tag": "3.1.0",
+    "commit": "dedc0178918e260823323b8d95005a8cb924b007",
+    "checked_at": "2026-09-19"
+  },
+  "benchmark_base": {
+    "commit": "af3dc6553d9f7aebb5929b192fbf3a922a467050",
+    "description": "Parent state before the checkout payment-failure fix"
+  },
+  "runtime": {
+    "dependency_release": "3.1.0",
+    "source_built_services": [
+      "frontend",
+      "checkout",
+      "payment"
+    ],
+    "image_manifest": "../../evidence/otel-checkout-noise-01/runtime-images.json",
+    "note": "The task target and its checkout/payment call path are built from the pinned benchmark base; remaining services use the official 3.1.0 release images."
+  },
+  "primary_oracle": {
+    "commit": "586dd1c66ae0576c3840921a417eb104592ea6b1",
+    "pull_request": "https://github.com/open-telemetry/opentelemetry-demo/pull/3739",
+    "title": "fix(frontend): return structured checkout errors for payment failures"
+  },
+  "followup_oracle": {
+    "commit": "d3ee0736",
+    "pull_request": "https://github.com/open-telemetry/opentelemetry-demo/pull/3871",
+    "title": "fix(currency): gracefully shut down on termination"
+  }
+}

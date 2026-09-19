@@ -1,0 +1,161 @@
+{
+  "method": {
+    "run": "planroom-06-method-v12",
+    "termination": "submitted",
+    "requests": 427,
+    "provider_attempts": 427,
+    "provider_outcomes": {
+      "success": 427
+    },
+    "duration_seconds": 1457.6603620052338,
+    "tool_calls": 570,
+    "mcp_calls": 308,
+    "tool_counts": {
+      "read_file": 24,
+      "list_files": 2,
+      "mcp_context7__resolve-library-id": 3,
+      "mcp_context7__query-docs": 3,
+      "write_file": 16,
+      "context_apply": 6,
+      "edit_file": 196,
+      "run_tests": 4,
+      "mcp_browser__browser_navigate": 62,
+      "mcp_browser__browser_console_messages": 11,
+      "grep": 7,
+      "mcp_browser__browser_snapshot": 15,
+      "mcp_browser__browser_select_option": 16,
+      "mcp_browser__browser_find": 63,
+      "mcp_browser__browser_take_screenshot": 7,
+      "mcp_browser__browser_click": 82,
+      "mcp_browser__browser_fill_form": 13,
+      "mcp_browser__browser_type": 25,
+      "mcp_browser__browser_network_requests": 2,
+      "mcp_browser__browser_navigate_back": 1,
+      "mcp_browser__browser_tabs": 5,
+      "mcp_browser__browser_resize": 3,
+      "mcp_browser__browser_press_key": 2,
+      "diff": 1,
+      "submit_answer": 1
+    },
+    "input_tokens": 67996054,
+    "output_tokens": 140880,
+    "total_tokens": 68136934,
+    "final_prompt_tokens": 283105,
+    "peak_prompt_tokens": 283105,
+    "mean_prompt_tokens": 159241.34426229508,
+    "cached_input_tokens": 67281856,
+    "unknown_cache_input_tokens": 448901,
+    "estimated_cost_lower_usd": 3.51003725,
+    "estimated_cost_upper_usd": 3.5773724,
+    "context_transitions": 6,
+    "recoveries": 0
+  },
+  "retained": {
+    "run": "planroom-07-retained-v12",
+    "termination": "submitted",
+    "requests": 442,
+    "provider_attempts": 442,
+    "provider_outcomes": {
+      "success": 442
+    },
+    "duration_seconds": 1906.8655989170074,
+    "tool_calls": 488,
+    "mcp_calls": 370,
+    "tool_counts": {
+      "list_files": 2,
+      "read_file": 13,
+      "mcp_context7__resolve-library-id": 3,
+      "mcp_context7__query-docs": 4,
+      "write_file": 9,
+      "edit_file": 80,
+      "grep": 7,
+      "run_tests": 4,
+      "mcp_browser__browser_navigate": 74,
+      "mcp_browser__browser_console_messages": 14,
+      "mcp_browser__browser_snapshot": 34,
+      "mcp_browser__browser_find": 60,
+      "mcp_browser__browser_click": 95,
+      "mcp_browser__browser_fill_form": 18,
+      "mcp_browser__browser_type": 34,
+      "mcp_browser__browser_wait_for": 1,
+      "mcp_browser__browser_select_option": 13,
+      "mcp_browser__browser_tabs": 7,
+      "mcp_browser__browser_resize": 4,
+      "mcp_browser__browser_take_screenshot": 4,
+      "mcp_browser__browser_press_key": 5,
+      "diff": 1,
+      "submit_answer": 2
+    },
+    "input_tokens": 67557477,
+    "output_tokens": 112147,
+    "total_tokens": 67669624,
+    "final_prompt_tokens": 265965,
+    "peak_prompt_tokens": 265965,
+    "mean_prompt_tokens": 152844.9705882353,
+    "cached_input_tokens": 67348096,
+    "unknown_cache_input_tokens": 28386,
+    "estimated_cost_lower_usd": 3.4610966,
+    "estimated_cost_upper_usd": 3.4653545,
+    "context_transitions": 0,
+    "recoveries": 0
+  },
+  "method_minus_retained": {
+    "requests": {
+      "absolute": -15,
+      "percent_of_retained": -3.3936651583710407
+    },
+    "duration_seconds": {
+      "absolute": -449.2052369117737,
+      "percent_of_retained": -23.557257373928035
+    },
+    "tool_calls": {
+      "absolute": 82,
+      "percent_of_retained": 16.80327868852459
+    },
+    "mcp_calls": {
+      "absolute": -62,
+      "percent_of_retained": -16.756756756756758
+    },
+    "input_tokens": {
+      "absolute": 438577,
+      "percent_of_retained": 0.64919091043024
+    },
+    "output_tokens": {
+      "absolute": 28733,
+      "percent_of_retained": 25.620836937234166
+    },
+    "total_tokens": {
+      "absolute": 467310,
+      "percent_of_retained": 0.6905757301089777
+    },
+    "final_prompt_tokens": {
+      "absolute": 17140,
+      "percent_of_retained": 6.444456977421842
+    },
+    "peak_prompt_tokens": {
+      "absolute": 17140,
+      "percent_of_retained": 6.444456977421842
+    },
+    "mean_prompt_tokens": {
+      "absolute": 6396.3736740597815,
+      "percent_of_retained": 4.184876773794296
+    },
+    "cached_input_tokens": {
+      "absolute": -66240,
+      "percent_of_retained": -0.09835467360502664
+    },
+    "unknown_cache_input_tokens": {
+      "absolute": 420515,
+      "percent_of_retained": 1481.4168956527865
+    },
+    "estimated_cost_lower_usd": {
+      "absolute": 0.04894065000000003,
+      "percent_of_retained": 1.4140214982731205
+    },
+    "estimated_cost_upper_usd": {
+      "absolute": 0.11201789999999967,
+      "percent_of_retained": 3.232509112704044
+    }
+  },
+  "interpretation": "Single stochastic matched pair; descriptive differences are not causal estimates."
+}

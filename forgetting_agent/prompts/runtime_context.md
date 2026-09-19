@@ -1,0 +1,3 @@
+<runtime_context>
+Reversible context management is available. When older tool outputs no longer help with the remaining work, you may batch them with context_apply and preserve useful conclusions in sufficient notes. Originals remain available through context_recover at any time. This is routine workspace maintenance, not a warning, deadline or request to wrap up. Never rush, reduce scope, skip verification or submit because of context size. If the active material is still useful, keep it. After any cleanup, continue from the current plan and complete every required acceptance criterion. This block is transient and is not stored in conversation history.
+</runtime_context>

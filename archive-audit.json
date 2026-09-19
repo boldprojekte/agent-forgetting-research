@@ -1,0 +1,240 @@
+{
+  "source_sha256": "7a7db55a8f507bb8426362a75626a5fa9dc99a1d924a0b99350f3f99e30d111c",
+  "entries": [
+    {
+      "ref": "ic-0001",
+      "tool_call_id": "call_ca05834ce0894ff0bd6805c7",
+      "original_text_chars": 263959,
+      "original_text_sha256": "37926245578c66e76b31dec1c8a062fcd164dd3a407df0334a78a0f56c2a9fd7",
+      "note_chars": 517,
+      "note": "Jaeger API proxy works: /grafana/api/datasources/proxy/uid/webstore-traces/api/traces?service=frontend&limit=20&lookback=1h. Datasources: Jaeger uid webstore-traces (url http://jaeger:16686/jaeger/ui), OpenSearch uid webstore-logs (index otel-logs-*), Prometheus uid webstore-metrics. Returned only recent 200 traces (recommendations/products/cart), no checkout trace in that window slice; traces show services frontend, frontend-proxy, load-generator, recommendation, ad. Replica numbers/runtimes not needed further.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0002",
+      "tool_call_id": "call_8ce65183531b4618baf52006",
+      "original_text_chars": 582,
+      "original_text_sha256": "d85d2ddf170aaeff4e3878807a95c7fc193b13fc40bc3ea33077232f5737ebb1",
+      "note_chars": 131,
+      "note": "Same Jaeger query response as r21 (raw). Use the Grafana datasource proxy URL pattern for Jaeger/OpenSearch/Prometheus API queries.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0003",
+      "tool_call_id": "call_5aaf1e7072fc419e9ac5829e",
+      "original_text_chars": 5720,
+      "original_text_sha256": "02b6e8f3b29a437e8eb7f855366ea4df26dd96f7bd9dcdde975541c379422b70",
+      "note_chars": 92,
+      "note": "Home page snapshot: normal storefront, products list, session id footer. Not needed further.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0004",
+      "tool_call_id": "call_ae6dc8868ae94d4986089f91",
+      "original_text_chars": 8635,
+      "original_text_sha256": "b37567690a308a99821806a58c63725407e2b629b5520544ccb03bbb39b149e9",
+      "note_chars": 225,
+      "note": "Cart page snapshot after failed checkout: cart page still shown (failed checkout left user on /cart), form prefilled, no user-visible error message, cart still has item. Confirms browser shows generic failure without message.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0005",
+      "tool_call_id": "call_1e1a29f0d829415a81628fad",
+      "original_text_chars": 4492,
+      "original_text_sha256": "3fbe1ff14f5304c009ec9facd816dee8d00459594a20758f95b57039080a1db0",
+      "note_chars": 419,
+      "note": "Network log of failed checkout: POST http://127.0.0.1:18080/api/checkout?currencyCode=USD => 500 Internal Server Error (request #78). Also unrelated anomaly: earlier GET /api/recommendations?... => 500 (request #31, later retried 200). Browser OTLP export to localhost:8080/otlp-http fails ERR_CONNECTION_REFUSED (browser telemetry not reachable from host). Cookies: no; session id eae5ae84-ec94-4001-b4a0-fde75051a3f3.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0006",
+      "tool_call_id": "call_990389eabcbe4e3cbdb520f8",
+      "original_text_chars": 1253616,
+      "original_text_sha256": "bea4edc0108972f1121fa5bb35fec16bc07664b4a16359802991cdfddb242462",
+      "note_chars": 1245,
+      "note": "Jaeger trace evidence (query service=checkout&limit=10&lookback=1h). Our browser checkout failure trace: traceID fdf93287fae8fdf5c7f0d667b5ddf60c (frontend POST /api/checkout?currencyCode=USD, HeadlessChrome UA, user.id eae5ae84-ec94-4001-b4a0-fde75051a3f3). Chain: frontend next.js 'executing api route /api/checkout' (500, exception.message '13 INTERNAL: failed to charge card: could not charge the card: rpc error: code = Unknown desc = Payment request failed. Invalid token. demo.user_context.loyalty_level=gold') -> grpc.oteldemo.CheckoutService/PlaceOrder (client, status 13) -> checkout service oteldemo.CheckoutService/PlaceOrder (server, INTERNAL, status_description 'failed to charge card...', flag paymentUnreachable=off) -> oteldemo.PaymentService/Charge (UNKNOWN) -> payment service 'charge' span (exception at /usr/src/app/charge.js:47: 'Payment request failed. Invalid token. demo.user_context.loyalty_level=gold'). Also unrelated anomalies in other traces: product-catalog failure flag productCatalogFailure=on (product OLJCESPC7Z -> 'failed to prepare order' on other sessions), GET /api/products/OLJCESPC7Z 500, GET /api/recommendations 500. Envoy/ingress 500 spans present. This is the diagnosis evidence for BENCHMARK_REPORT.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0007",
+      "tool_call_id": "call_39019cd4665b4cf4aaa21bc5",
+      "original_text_chars": 15019,
+      "original_text_sha256": "21318e3efd2455db1771826a9ac5b35d03c8ec667129f9578407f49db062abbc",
+      "note_chars": 678,
+      "note": "Focused spec CheckoutFailure.cy.ts run 16:42 vs redeployed live frontend: ALL 3 PASSING in 1s. (1) 422 PAYMENT_FAILED simulated decline (904ms, first attempt); (2) unrelated internal checkout failure (cart with OLJCESPC7Z via cy.request POST /api/checkout) => 500 JSON with non-empty error, no PAYMENT_FAILED, no leaked details (181ms); (3) non-JSON 502 HTML body on GET /api/cart handled safely, cart page still renders (177ms). Earlier failed iterations: uncaught RequestError rejection needed global Cypress.on('uncaught:exception') name==='RequestError' suppression; cart-state contamination (OLJCESPC7Z item makes GET /api/cart 500) required emptyCartViaApi before seeding.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0008",
+      "tool_call_id": "call_19650cc45d7949cc974551dc",
+      "original_text_chars": 21739,
+      "original_text_sha256": "da7fe3aa386f177807aeb82e5b26bdb439a225ddec2d0398f06c43274f25b1b4",
+      "note_chars": 509,
+      "note": "Pre-existing specs run 16:43 (Checkout/Home/ProductDetail): 7 tests, 4 pass, 3 fail. Home 'should recover corrupted stored session' (expects session id 8d78ffcc-... span) and ProductDetail 'should not render product picture...' fail \u2014 both unrelated to my changes (session/image handling untouched). Checkout.cy.ts 'should create an order with two items' failed \u2014 likely the probabilistic payment-decline fault (422) preventing /checkout navigation, not the code change; needs re-run to confirm intermittence.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0009",
+      "tool_call_id": "call_04dea86a21ce49bc8756c6f7",
+      "original_text_chars": 561220,
+      "original_text_sha256": "46b7951b0625d90e038afcf4557b7e6a4ff852209b3afd8bb94800616214d792",
+      "note_chars": 995,
+      "note": "Jaeger query service=checkout lookback=15m (raw, huge). Key evidence: my browser session (user 5c311a8a-...) POST /api/checkout returned HTTP 422 with next.js span 'executing api route /api/checkout' http.status_code=422, otel.status_description='13 INTERNAL: failed to charge card ... Payment request failed. Invalid token. demo.user_context.loyalty_level=gold', exception recorded on span (telemetry keeps failure visible), payment 'charge' span ERROR at charge.js:47, checkout PlaceOrder INTERNAL, paymentUnreachable=off. Load-generator traces also show 422s (previously 500). Separately, product OLJCESPC7Z with productCatalogFailure flag ON causes 'failed to prepare order: failed to get product #\"OLJCESPC7Z\"' -> /api/checkout 500 (my internal-failure path) and GET /api/products/OLJCESPC7Z 500. Note: the 500 seen in my browser network log (r85) was for product L9ECAV7KAA whose session cart also contained OLJCESPC7Z from flagd targeting \u2014 the generic internal failure path, not payment.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0010",
+      "tool_call_id": "call_b2f59425199047539dc7f290",
+      "original_text_chars": 17055,
+      "original_text_sha256": "50729ce908d9349651c4251629ad34b786ce41b587bfd4790a9f75302ba6dbaf",
+      "note_chars": 497,
+      "note": "Run 16:45 of CheckoutFailure.cy.ts with 4th test 'still places successful orders end to end': 3 passed, success test failed after 20 checkout attempts, never receiving 200 \u2014 the controlled paymentFailure fault declines 100% of charges, so a successful order cannot be observed live. Success-path evidence is code review (200 handler untouched) plus traces showing the fault. 4th test was removed afterwards; final run 16:46 (r91) had all 3 remaining tests passing (896ms/141ms/193ms), exit code 0.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0011",
+      "tool_call_id": "call_9d0538e8d82546a2a56701a3",
+      "original_text_chars": 9759,
+      "original_text_sha256": "373334a5b3f797e49e414f6259af26c8ba21021fdc3bd313eabd9f114d1e3710",
+      "note_chars": 215,
+      "note": "Currency rebuild after removing explicit MeterProvider::Shutdown() from shutdownMeter (flush only; destruction performs shutdown): build exit 0, deploy healthy, ~22s. Deprecated semconv kRpc* warnings remain benign.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0012",
+      "tool_call_id": "call_0a266a85f6214cb2a42061d1",
+      "original_text_chars": 1015,
+      "original_text_sha256": "a4ab12efa2d2433fc72d16ec5c21b6dc5954333c1a2e4f0c89ec154183b3236a",
+      "note_chars": 355,
+      "note": "Probe with step markers: crash localized between '[shutdown] clearing api meter provider' and '[shutdown] meter provider destroyed' \u2014 MeterProvider/OTLP-gRPC metric reader teardown crashed (exit 139) when explicit Shutdown() was combined with destruction ('Shutdown can be invoked only once' x2). Tracer and instrument-handle release steps completed fine.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0013",
+      "tool_call_id": "call_ae481d4c3fee436fb3579758",
+      "original_text_chars": 9760,
+      "original_text_sha256": "e033e0227e7e056c2001913bf36e1deecbdba095af301459eb06a9f8c600b0ad",
+      "note_chars": 184,
+      "note": "Earlier build after restructure (keep-provider-alive + release_all ordering): build+deploy OK; probe still exit 139 with logger flush lines missing; led to step-marker instrumentation.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0014",
+      "tool_call_id": "call_c87aa68cf5914c9c9cfcbe38",
+      "original_text_chars": 9759,
+      "original_text_sha256": "ee4875789e7843f36ea1a2518556ea637bb866805db2ac78890c5f5ea9a95969",
+      "note_chars": 235,
+      "note": "First successful currency build/deploy of graceful-shutdown version (shutdownTracer/Meter/Logger with take-and-reset semantics). Probe showed clean ordered shutdown logs but exit status 139 (SIGSEGV) after 'graceful shutdown complete'.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0015",
+      "tool_call_id": "call_059f7c742b6e46babfe9d536",
+      "original_text_chars": 897,
+      "original_text_sha256": "75560716dc42152ab3379e1bc07b1dbf51d0e64a2c2ce8a7a4d30567899d6564",
+      "note_chars": 135,
+      "note": "First probe_currency_shutdown run: SIGTERM stop elapsed 0.6s; final logs show full graceful sequence; exit status 139. Restart healthy.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0016",
+      "tool_call_id": "call_81fc31ab3cfe4cfba377eae4",
+      "original_text_chars": 870,
+      "original_text_sha256": "b72e8e9803f18ca539c47af8842099c1ec6eb9d8d0daa5cab3eec7cbe76a232f",
+      "note_chars": 156,
+      "note": "Second probe after adding API-provider clearing: still exit 139, 'graceful shutdown complete' missing; final logs show meter Shutdown-invoked-once warnings.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0017",
+      "tool_call_id": "call_8d75da91f13841b0b9543c46",
+      "original_text_chars": 17992,
+      "original_text_sha256": "62a868ade907cfcf0fb2b1fc986d0d23851467a71c0f0c9d71404cc8b2ad16f7",
+      "note_chars": 205,
+      "note": "First currency build attempt: compile errors \u2014 nostd::shared_ptr cannot convert to std::shared_ptr or copy from lvalue different type; fixed by using nostd::shared_ptr globals and raw-pointer API wrappers.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0018",
+      "tool_call_id": "call_c1e9450a6a3946d8a7fa82b3",
+      "original_text_chars": 10849,
+      "original_text_sha256": "fe488eab223694843ea4197e9c235a8dc03eca1b7e8948956c202c1754b82646",
+      "note_chars": 99,
+      "note": "Build error: nostd::shared_ptr has no reset(); replaced with assignment of empty nostd::shared_ptr.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0019",
+      "tool_call_id": "call_4b7db9d417474f15aba62120",
+      "original_text_chars": 9952,
+      "original_text_sha256": "5860762ee788263e8ef9b51517b331e66cc49959ca5402eb5a49a318097ab98e",
+      "note_chars": 422,
+      "note": "Rebuild with startup-failure OTLP log line (currency.server.start_failed) while TEMPORARY occupied-port probe entrypoint deployed (second instance launched against first's port; prod exec entrypoint NOT yet restored). Build+deploy OK, container healthy (first instance serves; second failed fast and exited). Next: query OpenSearch for the start_failed log record, then restore exec entrypoint and re-verify SIGTERM probe.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0020",
+      "tool_call_id": "call_6143a9f5e00c498397ee9c34",
+      "original_text_chars": 1084,
+      "original_text_sha256": "7c10334f9ed49113f326396e0e472edfa2e273a6ed7dafae6e29133ec50c3794",
+      "note_chars": 517,
+      "note": "Probe with exit-0 SUCCESS (before probe-entrypoint experiment): SIGTERM stop 0.8s, exit status 0, full ordered graceful shutdown logs (signal received -> gRPC server shut down -> tracer flushed/shut down -> meter flushed/shut down -> meter provider released via intentional leak -> logger flushed/shut down -> graceful shutdown complete). One benign 'MeterContext::Shutdown can be invoked only once' warning from the meter provider teardown chain. Restart healthy. This was the last clean production-entrypoint probe.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0021",
+      "tool_call_id": "call_ba1c5a373cea4a419d73e117",
+      "original_text_chars": 858,
+      "original_text_sha256": "302e42bfedfe9f292f706c2b833165a49629aa6f5506c889c06e2649a650e7ba",
+      "note_chars": 226,
+      "note": "Probe before meter-leak fix: exit 139, crash in MeterProvider destruction (OTLP gRPC metric reader teardown re-entering Shutdown), logger lines missing. Fixed by leaking the shut-down meter provider handle (r148 = clean pass).",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0022",
+      "tool_call_id": "call_3c8ceb16871943c6aa1a2c8a",
+      "original_text_chars": 2980,
+      "original_text_sha256": "ea51cdec1dbb3fe447a9314b5874f1786d512fee89bede4501fcb862056a245e",
+      "note_chars": 394,
+      "note": "Deploy with TEMPORARY occupied-port probe entrypoint (currency & sleep 3; currency; echo probe-exit; wait): build+deploy OK, container Healthy \u2014 shows the second instance against the occupied port exited promptly without taking down the service. Final logs came back EMPTY from the probe tool in this mode, so the exit-code line was not observable; motivated the OTLP start_failed log approach.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0023",
+      "tool_call_id": "call_e02440be24fc44f8be148b76",
+      "original_text_chars": 793,
+      "original_text_sha256": "c0c93045b6c0d0a7b0977985b634dbbf9bc92d48636dc714c1c5f5078f92cc6f",
+      "note_chars": 127,
+      "note": "OpenSearch q=\"Currency Server failed to start\" -> 0 hits (phrase query didn't match; possibly indexing delay or field mapping).",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0024",
+      "tool_call_id": "call_65b43509040442d987d4a800",
+      "original_text_chars": 8255,
+      "original_text_sha256": "31edc0d24d32e63b9d87d4102bce21fb6b53e856fca5306e08656507d368859b",
+      "note_chars": 368,
+      "note": "OpenSearch q=failed+to+start returned 4013 hits but only load-generator log records shown (default match broad). Need targeted query: filter service.name=currency AND body contains 'Currency Server failed to start' / event name currency.server.start_failed. Datasource proxy URL pattern works: /grafana/api/datasources/proxy/uid/webstore-logs/otel-logs-*/_search?q=...",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0025",
+      "tool_call_id": "call_31ae9fbb11504374a1d9795a",
+      "original_text_chars": 9808,
+      "original_text_sha256": "a447e6a322b68a25e7f8c8ef892e345f79fe9be9292153bc965983f814ad791f",
+      "note_chars": 433,
+      "note": "Deploy with temporary occupied-port probe entrypoint + GRPC_ARG_ALLOW_REUSEPORT=0: build OK (only benign deprecated kRpc* semconv warnings), deploy healthy. Expect the second instance to now hit BuildAndStart failure ('Currency Server failed to start' + OTLP log currency.server.start_failed) instead of sharing the port. Next: query OpenSearch for that record, then restore production exec entrypoint and re-run final SIGTERM probe.",
+      "image_count": 0
+    },
+    {
+      "ref": "ic-0026",
+      "tool_call_id": "call_c6d0bc4cbaba4e7680f17663",
+      "original_text_chars": 561,
+      "original_text_sha256": "b5630c642fe737e8af40ccf2d78e3599d2ee628bda2016b86a8777a2b79e43a8",
+      "note_chars": 330,
+      "note": "OpenSearch via Grafana proxy works: /grafana/api/datasources/proxy/uid/webstore-logs/otel-logs-*/_search?q=body:%22...%22&size=N&sort=observedTimestamp:desc&_source=... The q=body:\"Currency Server\" search showed only 'Currency Server started' records (two per restart in probe mode) \u2014 no 'failed to start' record yet at that time.",
+      "image_count": 0
+    }
+  ],
+  "scope": "Derived archive metadata and notes. Original payloads and full traces retained privately; hashes alone do not permit external rechecking of archive equality."
+}

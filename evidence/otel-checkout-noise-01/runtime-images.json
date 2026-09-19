@@ -1,0 +1,229 @@
+{
+  "captured_at": "2026-09-19",
+  "images": [
+    {
+      "reference": "agent-forgetting/otel-checkout:checkout-noise-01",
+      "available": true,
+      "id": "sha256:329df585745af9e5462c860a15973484139ec1de1c085ff2429d78d531cc5315",
+      "repo_digests": [
+        "agent-forgetting/otel-checkout@sha256:329df585745af9e5462c860a15973484139ec1de1c085ff2429d78d531cc5315"
+      ]
+    },
+    {
+      "reference": "agent-forgetting/otel-frontend:checkout-noise-01",
+      "available": true,
+      "id": "sha256:8813d526a06c7ee01dfb2abac3391e82605def0acf0fd58683f2e29f212237aa",
+      "repo_digests": [
+        "agent-forgetting/otel-frontend@sha256:8813d526a06c7ee01dfb2abac3391e82605def0acf0fd58683f2e29f212237aa"
+      ]
+    },
+    {
+      "reference": "agent-forgetting/otel-payment:checkout-noise-01",
+      "available": true,
+      "id": "sha256:1b626d1113b2b08ee6c59dc06c00d8131f3856ad4a64e1011a8f22bf4ac5e46d",
+      "repo_digests": [
+        "agent-forgetting/otel-payment@sha256:1b626d1113b2b08ee6c59dc06c00d8131f3856ad4a64e1011a8f22bf4ac5e46d"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-feature/flagd:v0.16.0",
+      "available": true,
+      "id": "sha256:32234e63c1d0634883aabd31cbd46802934aaaef0153dfd653b5d1017940bb4e",
+      "repo_digests": [
+        "ghcr.io/open-feature/flagd@sha256:32234e63c1d0634883aabd31cbd46802934aaaef0153dfd653b5d1017940bb4e"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-accounting",
+      "available": true,
+      "id": "sha256:bfd9d13ac58a4eb5eb5130aa9ac1920686e2214030f4f2ab8bf178121879fcd9",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:bfd9d13ac58a4eb5eb5130aa9ac1920686e2214030f4f2ab8bf178121879fcd9"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-ad",
+      "available": true,
+      "id": "sha256:dfd7a4697116d7f961f2c6e8be1bd187f2af7555d6d4138c016097921d7c7ed0",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:dfd7a4697116d7f961f2c6e8be1bd187f2af7555d6d4138c016097921d7c7ed0"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-cart",
+      "available": true,
+      "id": "sha256:17c881cf29af5032e47d3dbd677afb132cbde66aad6355c7c2af8a6dbfc80581",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:17c881cf29af5032e47d3dbd677afb132cbde66aad6355c7c2af8a6dbfc80581"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-currency",
+      "available": true,
+      "id": "sha256:ba65e72d5841f909e0ee09498572092923f59e249ae4bf084ab63a82b33811c1",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:ba65e72d5841f909e0ee09498572092923f59e249ae4bf084ab63a82b33811c1"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-email",
+      "available": true,
+      "id": "sha256:bd7754c1e0986f892b86ed6ab9067a372640d342ff8eee2074bedb61c649ce71",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:bd7754c1e0986f892b86ed6ab9067a372640d342ff8eee2074bedb61c649ce71"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-flagd-ui",
+      "available": true,
+      "id": "sha256:97a3d37e709f80e2018cdc0d45ea12d5b59092693e0e003d65089da966107062",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:97a3d37e709f80e2018cdc0d45ea12d5b59092693e0e003d65089da966107062"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-fraud-detection",
+      "available": true,
+      "id": "sha256:a07ee694304b23e3e4e1ca9bdaa7a02e3eb30d1805d87dfe95e7ea31cd3aa703",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:a07ee694304b23e3e4e1ca9bdaa7a02e3eb30d1805d87dfe95e7ea31cd3aa703"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-frontend-proxy",
+      "available": true,
+      "id": "sha256:fd4da88bfeaadd9437a4ee00f708e129a9eedb9c48874cea8e94b034983280a1",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:fd4da88bfeaadd9437a4ee00f708e129a9eedb9c48874cea8e94b034983280a1"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-image-provider",
+      "available": true,
+      "id": "sha256:46d1a7e95109c0064122ca0bfb49cd05191fb90a6264b6be508e0d98f2c963f1",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:46d1a7e95109c0064122ca0bfb49cd05191fb90a6264b6be508e0d98f2c963f1"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-kafka",
+      "available": true,
+      "id": "sha256:4402ba7fd54470782a445f07c67e1d3f44d88ac8c5c0abf5d8298190a3f7a6ee",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:4402ba7fd54470782a445f07c67e1d3f44d88ac8c5c0abf5d8298190a3f7a6ee"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-load-generator",
+      "available": true,
+      "id": "sha256:b130d6cee6cb36a2799787a553168811e3ccc5408fe5dad0bc4b4d8302c7a63c",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:b130d6cee6cb36a2799787a553168811e3ccc5408fe5dad0bc4b4d8302c7a63c"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-opamp-server",
+      "available": true,
+      "id": "sha256:3b6c6220bf9c7d8e6fdb8d1966316e80c5ac2004db6ae29c46681009d50e2093",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:3b6c6220bf9c7d8e6fdb8d1966316e80c5ac2004db6ae29c46681009d50e2093"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-opensearch",
+      "available": true,
+      "id": "sha256:0a8401e9db8f7638b189a822a1a56a54dd4598cc42891ef59e3d003b2768b4ad",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:0a8401e9db8f7638b189a822a1a56a54dd4598cc42891ef59e3d003b2768b4ad"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-product-catalog",
+      "available": true,
+      "id": "sha256:7578cbf65fa4f0fc68e077e4f299ecccaa31d9778d407e41ab5973d247fd4b8e",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:7578cbf65fa4f0fc68e077e4f299ecccaa31d9778d407e41ab5973d247fd4b8e"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-quote",
+      "available": true,
+      "id": "sha256:e0b1ab3784fdbf0112521d3c5c733643f1cefa4eef5f592f845977465400181e",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:e0b1ab3784fdbf0112521d3c5c733643f1cefa4eef5f592f845977465400181e"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-recommendation",
+      "available": true,
+      "id": "sha256:9dd7d7c320d2794a87c78cf534892519dace661a9022eb2cad5de1b75d994c18",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:9dd7d7c320d2794a87c78cf534892519dace661a9022eb2cad5de1b75d994c18"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-shipping",
+      "available": true,
+      "id": "sha256:7130dba0e77e90575b3f04fa8be39182cffe05f39df586a6620e9d221ee31e77",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:7130dba0e77e90575b3f04fa8be39182cffe05f39df586a6620e9d221ee31e77"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/demo:3.1.0-telemetry-docs",
+      "available": true,
+      "id": "sha256:3f257a843222df2462d903fd57b12af5f31dc99a0f174b45136a4f3ba5c71203",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/demo@sha256:3f257a843222df2462d903fd57b12af5f31dc99a0f174b45136a4f3ba5c71203"
+      ]
+    },
+    {
+      "reference": "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.159.0",
+      "available": true,
+      "id": "sha256:1f2c54a30e713fac6b3ae77a1ec84010c2007e29ced8ec666214fc2f6739c1cc",
+      "repo_digests": [
+        "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib@sha256:1f2c54a30e713fac6b3ae77a1ec84010c2007e29ced8ec666214fc2f6739c1cc"
+      ]
+    },
+    {
+      "reference": "ghcr.io/valkey-io/valkey:9.0.4-alpine3.23",
+      "available": true,
+      "id": "sha256:107b203169a20ef7c87548c157f4e4a833dbbbd20fefd3a26740b7f98ac80216",
+      "repo_digests": [
+        "ghcr.io/valkey-io/valkey@sha256:107b203169a20ef7c87548c157f4e4a833dbbbd20fefd3a26740b7f98ac80216"
+      ]
+    },
+    {
+      "reference": "grafana/grafana:13.1.0",
+      "available": true,
+      "id": "sha256:121a7a9ece6dc10b969f1f96eed64b4f07dfac0d0b8abc070f7cb83bbde86f63",
+      "repo_digests": [
+        "grafana/grafana@sha256:121a7a9ece6dc10b969f1f96eed64b4f07dfac0d0b8abc070f7cb83bbde86f63"
+      ]
+    },
+    {
+      "reference": "postgres:18.4",
+      "available": true,
+      "id": "sha256:a02db8cac496f15b094798a38254f14d6e00741f709360e5e00bb6668ea31636",
+      "repo_digests": [
+        "postgres@sha256:a02db8cac496f15b094798a38254f14d6e00741f709360e5e00bb6668ea31636"
+      ]
+    },
+    {
+      "reference": "quay.io/jaegertracing/jaeger:2.19.0",
+      "available": true,
+      "id": "sha256:ede4864215be4cd85bd8c3129a2fea6c5713c5653c7282c429dba123014bc68b",
+      "repo_digests": [
+        "quay.io/jaegertracing/jaeger@sha256:ede4864215be4cd85bd8c3129a2fea6c5713c5653c7282c429dba123014bc68b"
+      ]
+    },
+    {
+      "reference": "quay.io/prometheus/prometheus:v3.13.1",
+      "available": true,
+      "id": "sha256:3c42b892cf723fa54d2f262c37a0e1f80aa8c8ddb1da7b9b0df9455a35a7f893",
+      "repo_digests": [
+        "quay.io/prometheus/prometheus@sha256:3c42b892cf723fa54d2f262c37a0e1f80aa8c8ddb1da7b9b0df9455a35a7f893"
+      ]
+    }
+  ]
+}

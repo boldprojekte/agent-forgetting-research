@@ -1,0 +1,178 @@
+diff --git a/src/frontend/cypress/e2e/CheckoutPaymentFailure.cy.ts b/src/frontend/cypress/e2e/CheckoutPaymentFailure.cy.ts
+new file mode 100644
+index 00000000..97d4cd7f
+--- /dev/null
++++ b/src/frontend/cypress/e2e/CheckoutPaymentFailure.cy.ts
+@@ -0,0 +1,87 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++const FLAGD_READ_URL = '/feature/api/read';
++const FLAGD_WRITE_URL = '/feature/api/write';
++
++const setFlag = (flagName: string, defaultVariant: string) => {
++  cy.request('GET', FLAGD_READ_URL).then(({ body }) => {
++    body.flags[flagName].defaultVariant = defaultVariant;
++
++    cy.request('POST', FLAGD_WRITE_URL, { data: body });
++  });
++};
++
++// productCatalogFailure targets a specific product via a targeting rule rather than
++// defaultVariant, so toggling it requires flipping the rule's true-branch (matching how
++// the /feature UI itself edits this flag) instead of the simple defaultVariant swap above.
++const setProductCatalogFailure = (variant: 'on' | 'off') => {
++  cy.request('GET', FLAGD_READ_URL).then(({ body }) => {
++    body.flags.productCatalogFailure.targeting.if[1] = variant;
++
++    cy.request('POST', FLAGD_WRITE_URL, { data: body });
++  });
++};
++
++const placeOrder = (userId: string, productId = '0PUK6V6EV0') => {
++  cy.request('POST', '/api/cart', {
++    userId,
++    item: { productId, quantity: 1 },
++  });
++
++  return cy.request({
++    method: 'POST',
++    url: '/api/checkout?currencyCode=USD',
++    failOnStatusCode: false,
++    body: {
++      userId,
++      userCurrency: 'USD',
++      address: {
++        streetAddress: '1600 Amphitheatre Parkway',
++        city: 'Mountain View',
++        state: 'CA',
++        country: 'USA',
++        zipCode: '94043',
++      },
++      email: 'cypress-test@example.com',
++      creditCard: {
++        creditCardNumber: '4432801561520454',
++        creditCardCvv: 123,
++        creditCardExpirationYear: new Date().getFullYear() + 1,
++        creditCardExpirationMonth: 1,
++      },
++    },
++  });
++};
++
++describe('Checkout API payment failure handling', () => {
++  describe('intentional payment failure', () => {
++    before(() => setFlag('paymentFailure', '100%'));
++    after(() => setFlag('paymentFailure', 'off'));
++
++    it('returns a structured 422 PAYMENT_FAILED error instead of an unhandled 500', () => {
++      placeOrder(`cypress-payment-failure-${Date.now()}`).then(response => {
++        expect(response.status).to.eq(422);
++        expect(response.body).to.have.property('code', 'PAYMENT_FAILED');
++        expect(response.body).to.have.property('error').that.is.a('string').and.is.not.empty;
++      });
++    });
++  });
++
++  describe('unrelated internal failure', () => {
++    before(() => setProductCatalogFailure('on'));
++    after(() => setProductCatalogFailure('off'));
++
++    it('still returns a generic 500 and is not misclassified as PAYMENT_FAILED', () => {
++      // OLJCESPC7Z is the product productCatalogFailure targets; failing here happens
++      // during order-item preparation, before chargeCard is ever reached.
++      placeOrder(`cypress-catalog-failure-${Date.now()}`, 'OLJCESPC7Z').then(response => {
++        expect(response.status).to.eq(500);
++        expect(response.body).to.not.have.property('code');
++        expect(response.body).to.have.property('error').that.is.a('string').and.is.not.empty;
++      });
++    });
++  });
++});
++
++export {};
+diff --git a/src/frontend/pages/api/checkout.ts b/src/frontend/pages/api/checkout.ts
+index 6007ba2b..f7267571 100644
+--- a/src/frontend/pages/api/checkout.ts
++++ b/src/frontend/pages/api/checkout.ts
+@@ -2,20 +2,49 @@
+ // SPDX-License-Identifier: Apache-2.0
+ 
+ import type { NextApiRequest, NextApiResponse } from 'next';
++import type { ServiceError } from '@grpc/grpc-js';
++import { context, Exception, SpanStatusCode, trace } from '@opentelemetry/api';
+ import InstrumentationMiddleware from '../../utils/telemetry/InstrumentationMiddleware';
+ import CheckoutGateway from '../../gateways/rpc/Checkout.gateway';
+-import { Empty, PlaceOrderRequest } from '../../protos/demo';
++import { Empty, PlaceOrderRequest, PlaceOrderResponse } from '../../protos/demo';
+ import { IProductCheckoutItem, IProductCheckout } from '../../types/Cart';
+ import ProductCatalogService from '../../services/ProductCatalog.service';
+ 
+-type TResponse = IProductCheckout | Empty;
++// Prefix checkout's Go service always uses for chargeCard failures (src/checkout/main.go),
++// the only signal available to tell a payment decline apart from an unrelated internal error.
++const PAYMENT_FAILURE_PREFIX = 'failed to charge card:';
++
++type TResponse = IProductCheckout | Empty | { error: string; code?: string };
+ 
+ const handler = async ({ method, body, query }: NextApiRequest, res: NextApiResponse<TResponse>) => {
+   switch (method) {
+     case 'POST': {
+       const { currencyCode = '' } = query;
+       const orderData = body as PlaceOrderRequest;
+-      const { order: { items = [], ...order } = {} } = await CheckoutGateway.placeOrder(orderData);
++
++      let placeOrderResponse: PlaceOrderResponse;
++      try {
++        placeOrderResponse = await CheckoutGateway.placeOrder(orderData);
++      } catch (error) {
++        const span = trace.getSpan(context.active());
++        span?.recordException(error as Exception);
++        span?.setStatus({ code: SpanStatusCode.ERROR });
++
++        const details = (error as ServiceError)?.details || (error as Error)?.message || '';
++
++        if (details.startsWith(PAYMENT_FAILURE_PREFIX)) {
++          if (!details.includes('code = Unavailable') && !details.includes('code = Internal')) {
++            return res.status(422).json({
++              error: 'Your payment could not be processed. Please check your card details and try again.',
++              code: 'PAYMENT_FAILED',
++            });
++          }
++        }
++
++        return res.status(500).json({ error: 'Failed to place order.' });
++      }
++
++      const { order: { items = [], ...order } = {} } = placeOrderResponse;
+ 
+       const productList: IProductCheckoutItem[] = await Promise.all(
+         items.map(async ({ item: { productId = '', quantity = 0 } = {}, cost }) => {
+diff --git a/src/frontend/utils/Request.ts b/src/frontend/utils/Request.ts
+index b0ff20e9..e4a2c651 100644
+--- a/src/frontend/utils/Request.ts
++++ b/src/frontend/utils/Request.ts
+@@ -25,10 +25,21 @@ const request = async <T>({
+   });
+ 
+   const responseText = await response.text();
++  let data;
++  try {
++    data = responseText ? JSON.parse(responseText) : undefined;
++  } catch (err) {
++    if (response.ok) {
++      throw err;
++    }
++    data = undefined;
++  }
+ 
+-  if (!!responseText) return JSON.parse(responseText);
++  if (!response.ok) {
++    throw new Error(data?.error || `Request failed with status ${response.status}`);
++  }
+ 
+-  return undefined as unknown as T;
++  return data as T;
+ };
+ 
+ export default request;

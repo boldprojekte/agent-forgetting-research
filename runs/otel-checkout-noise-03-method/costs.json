@@ -1,0 +1,1529 @@
+{
+  "image_accounting": {
+    "logical_request_image_occurrences": 0,
+    "separate_image_tokens": 0,
+    "separate_image_cost_usd": 0
+  },
+  "currency": "USD",
+  "model": "z-ai/glm-5.3-flash",
+  "pricing": {
+    "observed_at": "2026-09-19T16:31:06.531355+00:00",
+    "model": "z-ai/glm-5.3-flash",
+    "currency": "USD",
+    "status": "available",
+    "source": "https://api.tensorx.ai/v1/model/info",
+    "rates": {
+      "input_cost_per_token": 2e-07,
+      "output_cost_per_token": 5e-07,
+      "cache_read_input_token_cost": 5e-08,
+      "cache_creation_input_token_cost": null,
+      "supports_prompt_caching": true
+    }
+  },
+  "valuation": "run_start_tariff",
+  "status": "estimated",
+  "complete": true,
+  "tokens_reported": {
+    "input_tokens": 22988240,
+    "output_tokens": 71919,
+    "reasoning_tokens_reported": 32438,
+    "cached_input_tokens": 21318208,
+    "unknown_cache_input_tokens": 1020587
+  },
+  "responses": 185,
+  "metered_rejected_attempts": 0,
+  "responses_with_missing_usage": 0,
+  "unmetered_attempts": 0,
+  "known_usage_lower_usd": 1.28278825,
+  "known_usage_upper_usd": 1.4358763,
+  "total_upper_usd": 1.4358763,
+  "actual_billed_usd": null,
+  "assumptions": [
+    "Estimate, not invoice; excludes taxes, credits and account adjustments.",
+    "Null cache-creation tariff uses ordinary input rate.",
+    "Unknown usage/failed requests can add unbounded unobserved cost.",
+    "Reasoning is included in completion_tokens, not added again."
+  ],
+  "per_response": [
+    {
+      "step": 1,
+      "input_tokens": 8284,
+      "output_tokens": 6,
+      "cached_input_tokens": null,
+      "lower_usd": 0.0004172,
+      "upper_usd": 0.0016598
+    },
+    {
+      "step": 2,
+      "input_tokens": 14143,
+      "output_tokens": 140,
+      "cached_input_tokens": null,
+      "lower_usd": 0.00077715,
+      "upper_usd": 0.0028986
+    },
+    {
+      "step": 3,
+      "input_tokens": 14384,
+      "output_tokens": 18,
+      "cached_input_tokens": 14080,
+      "lower_usd": 0.0007738,
+      "upper_usd": 0.0007738
+    },
+    {
+      "step": 4,
+      "input_tokens": 14503,
+      "output_tokens": 10,
+      "cached_input_tokens": 14336,
+      "lower_usd": 0.0007552,
+      "upper_usd": 0.0007552
+    },
+    {
+      "step": 5,
+      "input_tokens": 16088,
+      "output_tokens": 38,
+      "cached_input_tokens": 14464,
+      "lower_usd": 0.001067,
+      "upper_usd": 0.001067
+    },
+    {
+      "step": 6,
+      "input_tokens": 16257,
+      "output_tokens": 18,
+      "cached_input_tokens": 16064,
+      "lower_usd": 0.0008508,
+      "upper_usd": 0.0008508
+    },
+    {
+      "step": 7,
+      "input_tokens": 16541,
+      "output_tokens": 28,
+      "cached_input_tokens": 16256,
+      "lower_usd": 0.0008838,
+      "upper_usd": 0.0008838
+    },
+    {
+      "step": 8,
+      "input_tokens": 16717,
+      "output_tokens": 21,
+      "cached_input_tokens": 16512,
+      "lower_usd": 0.0008771,
+      "upper_usd": 0.0008771
+    },
+    {
+      "step": 9,
+      "input_tokens": 16935,
+      "output_tokens": 27,
+      "cached_input_tokens": 16704,
+      "lower_usd": 0.0008949,
+      "upper_usd": 0.0008949
+    },
+    {
+      "step": 10,
+      "input_tokens": 17108,
+      "output_tokens": 10,
+      "cached_input_tokens": 16896,
+      "lower_usd": 0.0008922,
+      "upper_usd": 0.0008922
+    },
+    {
+      "step": 11,
+      "input_tokens": 19441,
+      "output_tokens": 17,
+      "cached_input_tokens": 17088,
+      "lower_usd": 0.0013335,
+      "upper_usd": 0.0013335
+    },
+    {
+      "step": 12,
+      "input_tokens": 21268,
+      "output_tokens": 148,
+      "cached_input_tokens": 19456,
+      "lower_usd": 0.0014092,
+      "upper_usd": 0.0014092
+    },
+    {
+      "step": 13,
+      "input_tokens": 23923,
+      "output_tokens": 32,
+      "cached_input_tokens": 21248,
+      "lower_usd": 0.0016134,
+      "upper_usd": 0.0016134
+    },
+    {
+      "step": 14,
+      "input_tokens": 24104,
+      "output_tokens": 111,
+      "cached_input_tokens": 23872,
+      "lower_usd": 0.0012955,
+      "upper_usd": 0.0012955
+    },
+    {
+      "step": 15,
+      "input_tokens": 24617,
+      "output_tokens": 80,
+      "cached_input_tokens": 24064,
+      "lower_usd": 0.0013538,
+      "upper_usd": 0.0013538
+    },
+    {
+      "step": 16,
+      "input_tokens": 24997,
+      "output_tokens": 35,
+      "cached_input_tokens": 24576,
+      "lower_usd": 0.0013305,
+      "upper_usd": 0.0013305
+    },
+    {
+      "step": 17,
+      "input_tokens": 25190,
+      "output_tokens": 29,
+      "cached_input_tokens": 24960,
+      "lower_usd": 0.0013085,
+      "upper_usd": 0.0013085
+    },
+    {
+      "step": 18,
+      "input_tokens": 25268,
+      "output_tokens": 10,
+      "cached_input_tokens": 25152,
+      "lower_usd": 0.0012858,
+      "upper_usd": 0.0012858
+    },
+    {
+      "step": 19,
+      "input_tokens": 25934,
+      "output_tokens": 133,
+      "cached_input_tokens": 25216,
+      "lower_usd": 0.0014709,
+      "upper_usd": 0.0014709
+    },
+    {
+      "step": 20,
+      "input_tokens": 26301,
+      "output_tokens": 16,
+      "cached_input_tokens": 25920,
+      "lower_usd": 0.0013802,
+      "upper_usd": 0.0013802
+    },
+    {
+      "step": 21,
+      "input_tokens": 102123,
+      "output_tokens": 578,
+      "cached_input_tokens": 26240,
+      "lower_usd": 0.0167776,
+      "upper_usd": 0.0167776
+    },
+    {
+      "step": 22,
+      "input_tokens": 21613,
+      "output_tokens": 157,
+      "cached_input_tokens": 14464,
+      "lower_usd": 0.0022315,
+      "upper_usd": 0.0022315
+    },
+    {
+      "step": 23,
+      "input_tokens": 21959,
+      "output_tokens": 10,
+      "cached_input_tokens": 21760,
+      "lower_usd": 0.0011328,
+      "upper_usd": 0.0011328
+    },
+    {
+      "step": 24,
+      "input_tokens": 22174,
+      "output_tokens": 60,
+      "cached_input_tokens": 21952,
+      "lower_usd": 0.001172,
+      "upper_usd": 0.001172
+    },
+    {
+      "step": 25,
+      "input_tokens": 22468,
+      "output_tokens": 16,
+      "cached_input_tokens": 22144,
+      "lower_usd": 0.00118,
+      "upper_usd": 0.00118
+    },
+    {
+      "step": 26,
+      "input_tokens": 381299,
+      "output_tokens": 356,
+      "cached_input_tokens": null,
+      "lower_usd": 0.01924295,
+      "upper_usd": 0.0764378
+    },
+    {
+      "step": 27,
+      "input_tokens": 23261,
+      "output_tokens": 167,
+      "cached_input_tokens": 16384,
+      "lower_usd": 0.0022781,
+      "upper_usd": 0.0022781
+    },
+    {
+      "step": 28,
+      "input_tokens": 24254,
+      "output_tokens": 40,
+      "cached_input_tokens": 23296,
+      "lower_usd": 0.0013764,
+      "upper_usd": 0.0013764
+    },
+    {
+      "step": 29,
+      "input_tokens": 25726,
+      "output_tokens": 90,
+      "cached_input_tokens": 24192,
+      "lower_usd": 0.0015614,
+      "upper_usd": 0.0015614
+    },
+    {
+      "step": 30,
+      "input_tokens": 28388,
+      "output_tokens": 145,
+      "cached_input_tokens": 22464,
+      "lower_usd": 0.0023805,
+      "upper_usd": 0.0023805
+    },
+    {
+      "step": 31,
+      "input_tokens": 28765,
+      "output_tokens": 16,
+      "cached_input_tokens": 28416,
+      "lower_usd": 0.0014986,
+      "upper_usd": 0.0014986
+    },
+    {
+      "step": 32,
+      "input_tokens": 30083,
+      "output_tokens": 216,
+      "cached_input_tokens": 28736,
+      "lower_usd": 0.0018142,
+      "upper_usd": 0.0018142
+    },
+    {
+      "step": 33,
+      "input_tokens": 30343,
+      "output_tokens": 18,
+      "cached_input_tokens": 30208,
+      "lower_usd": 0.0015464,
+      "upper_usd": 0.0015464
+    },
+    {
+      "step": 34,
+      "input_tokens": 30821,
+      "output_tokens": 33,
+      "cached_input_tokens": 30336,
+      "lower_usd": 0.0016303,
+      "upper_usd": 0.0016303
+    },
+    {
+      "step": 35,
+      "input_tokens": 31306,
+      "output_tokens": 716,
+      "cached_input_tokens": 25664,
+      "lower_usd": 0.0027696,
+      "upper_usd": 0.0027696
+    },
+    {
+      "step": 36,
+      "input_tokens": 32414,
+      "output_tokens": 21,
+      "cached_input_tokens": 32000,
+      "lower_usd": 0.0016933,
+      "upper_usd": 0.0016933
+    },
+    {
+      "step": 37,
+      "input_tokens": 33170,
+      "output_tokens": 19,
+      "cached_input_tokens": 30784,
+      "lower_usd": 0.0020259,
+      "upper_usd": 0.0020259
+    },
+    {
+      "step": 38,
+      "input_tokens": 34202,
+      "output_tokens": 156,
+      "cached_input_tokens": 32384,
+      "lower_usd": 0.0020608,
+      "upper_usd": 0.0020608
+    },
+    {
+      "step": 39,
+      "input_tokens": 34743,
+      "output_tokens": 712,
+      "cached_input_tokens": 34304,
+      "lower_usd": 0.002159,
+      "upper_usd": 0.002159
+    },
+    {
+      "step": 40,
+      "input_tokens": 35497,
+      "output_tokens": 702,
+      "cached_input_tokens": 35328,
+      "lower_usd": 0.0021512,
+      "upper_usd": 0.0021512
+    },
+    {
+      "step": 41,
+      "input_tokens": 36937,
+      "output_tokens": 1082,
+      "cached_input_tokens": 36096,
+      "lower_usd": 0.002514,
+      "upper_usd": 0.002514
+    },
+    {
+      "step": 42,
+      "input_tokens": 38655,
+      "output_tokens": 1427,
+      "cached_input_tokens": 36096,
+      "lower_usd": 0.0030301,
+      "upper_usd": 0.0030301
+    },
+    {
+      "step": 43,
+      "input_tokens": 40141,
+      "output_tokens": 1202,
+      "cached_input_tokens": 39936,
+      "lower_usd": 0.0026388,
+      "upper_usd": 0.0026388
+    },
+    {
+      "step": 44,
+      "input_tokens": 41375,
+      "output_tokens": 7,
+      "cached_input_tokens": 41216,
+      "lower_usd": 0.0020961,
+      "upper_usd": 0.0020961
+    },
+    {
+      "step": 45,
+      "input_tokens": 43769,
+      "output_tokens": 73,
+      "cached_input_tokens": 33152,
+      "lower_usd": 0.0038175,
+      "upper_usd": 0.0038175
+    },
+    {
+      "step": 46,
+      "input_tokens": 52861,
+      "output_tokens": 631,
+      "cached_input_tokens": 43776,
+      "lower_usd": 0.0043213,
+      "upper_usd": 0.0043213
+    },
+    {
+      "step": 47,
+      "input_tokens": 53598,
+      "output_tokens": 10,
+      "cached_input_tokens": 41344,
+      "lower_usd": 0.004523,
+      "upper_usd": 0.004523
+    },
+    {
+      "step": 48,
+      "input_tokens": 53763,
+      "output_tokens": 848,
+      "cached_input_tokens": 53568,
+      "lower_usd": 0.0031414,
+      "upper_usd": 0.0031414
+    },
+    {
+      "step": 49,
+      "input_tokens": 54966,
+      "output_tokens": 1240,
+      "cached_input_tokens": 50304,
+      "lower_usd": 0.0040676,
+      "upper_usd": 0.0040676
+    },
+    {
+      "step": 50,
+      "input_tokens": 56254,
+      "output_tokens": 28,
+      "cached_input_tokens": 56064,
+      "lower_usd": 0.0028552,
+      "upper_usd": 0.0028552
+    },
+    {
+      "step": 51,
+      "input_tokens": 56342,
+      "output_tokens": 274,
+      "cached_input_tokens": 54528,
+      "lower_usd": 0.0032262,
+      "upper_usd": 0.0032262
+    },
+    {
+      "step": 52,
+      "input_tokens": 56833,
+      "output_tokens": 1752,
+      "cached_input_tokens": 56576,
+      "lower_usd": 0.0037562,
+      "upper_usd": 0.0037562
+    },
+    {
+      "step": 53,
+      "input_tokens": 60084,
+      "output_tokens": 7,
+      "cached_input_tokens": 56192,
+      "lower_usd": 0.0035915,
+      "upper_usd": 0.0035915
+    },
+    {
+      "step": 54,
+      "input_tokens": 62537,
+      "output_tokens": 26,
+      "cached_input_tokens": 60032,
+      "lower_usd": 0.0035156,
+      "upper_usd": 0.0035156
+    },
+    {
+      "step": 55,
+      "input_tokens": 71443,
+      "output_tokens": 1134,
+      "cached_input_tokens": 58368,
+      "lower_usd": 0.0061004,
+      "upper_usd": 0.0061004
+    },
+    {
+      "step": 56,
+      "input_tokens": 72541,
+      "output_tokens": 34,
+      "cached_input_tokens": 58368,
+      "lower_usd": 0.00577,
+      "upper_usd": 0.00577
+    },
+    {
+      "step": 57,
+      "input_tokens": 72823,
+      "output_tokens": 31,
+      "cached_input_tokens": 71296,
+      "lower_usd": 0.0038857,
+      "upper_usd": 0.0038857
+    },
+    {
+      "step": 58,
+      "input_tokens": 72957,
+      "output_tokens": 168,
+      "cached_input_tokens": 72768,
+      "lower_usd": 0.0037602,
+      "upper_usd": 0.0037602
+    },
+    {
+      "step": 59,
+      "input_tokens": 73631,
+      "output_tokens": 1919,
+      "cached_input_tokens": 72960,
+      "lower_usd": 0.0047417,
+      "upper_usd": 0.0047417
+    },
+    {
+      "step": 60,
+      "input_tokens": 75598,
+      "output_tokens": 657,
+      "cached_input_tokens": 75520,
+      "lower_usd": 0.0041201,
+      "upper_usd": 0.0041201
+    },
+    {
+      "step": 61,
+      "input_tokens": 76736,
+      "output_tokens": 133,
+      "cached_input_tokens": 76032,
+      "lower_usd": 0.0040089,
+      "upper_usd": 0.0040089
+    },
+    {
+      "step": 62,
+      "input_tokens": 77038,
+      "output_tokens": 238,
+      "cached_input_tokens": 76800,
+      "lower_usd": 0.0040066,
+      "upper_usd": 0.0040066
+    },
+    {
+      "step": 63,
+      "input_tokens": 77580,
+      "output_tokens": 322,
+      "cached_input_tokens": 77056,
+      "lower_usd": 0.0041186,
+      "upper_usd": 0.0041186
+    },
+    {
+      "step": 64,
+      "input_tokens": 78207,
+      "output_tokens": 238,
+      "cached_input_tokens": 77824,
+      "lower_usd": 0.0040868,
+      "upper_usd": 0.0040868
+    },
+    {
+      "step": 65,
+      "input_tokens": 78715,
+      "output_tokens": 87,
+      "cached_input_tokens": 78336,
+      "lower_usd": 0.0040361,
+      "upper_usd": 0.0040361
+    },
+    {
+      "step": 66,
+      "input_tokens": 78831,
+      "output_tokens": 26,
+      "cached_input_tokens": 78656,
+      "lower_usd": 0.0039808,
+      "upper_usd": 0.0039808
+    },
+    {
+      "step": 67,
+      "input_tokens": 86800,
+      "output_tokens": 1541,
+      "cached_input_tokens": 78848,
+      "lower_usd": 0.0063033,
+      "upper_usd": 0.0063033
+    },
+    {
+      "step": 68,
+      "input_tokens": 88756,
+      "output_tokens": 26,
+      "cached_input_tokens": 78848,
+      "lower_usd": 0.005937,
+      "upper_usd": 0.005937
+    },
+    {
+      "step": 69,
+      "input_tokens": 96690,
+      "output_tokens": 684,
+      "cached_input_tokens": 86656,
+      "lower_usd": 0.0066816,
+      "upper_usd": 0.0066816
+    },
+    {
+      "step": 70,
+      "input_tokens": 97665,
+      "output_tokens": 445,
+      "cached_input_tokens": 97280,
+      "lower_usd": 0.0051635,
+      "upper_usd": 0.0051635
+    },
+    {
+      "step": 71,
+      "input_tokens": 98268,
+      "output_tokens": 79,
+      "cached_input_tokens": 98048,
+      "lower_usd": 0.0049859,
+      "upper_usd": 0.0049859
+    },
+    {
+      "step": 72,
+      "input_tokens": 98590,
+      "output_tokens": 203,
+      "cached_input_tokens": 98304,
+      "lower_usd": 0.0050739,
+      "upper_usd": 0.0050739
+    },
+    {
+      "step": 73,
+      "input_tokens": 98785,
+      "output_tokens": 26,
+      "cached_input_tokens": 98304,
+      "lower_usd": 0.0050244,
+      "upper_usd": 0.0050244
+    },
+    {
+      "step": 74,
+      "input_tokens": 106262,
+      "output_tokens": 154,
+      "cached_input_tokens": 98432,
+      "lower_usd": 0.0065646,
+      "upper_usd": 0.0065646
+    },
+    {
+      "step": 75,
+      "input_tokens": 117393,
+      "output_tokens": 617,
+      "cached_input_tokens": 106240,
+      "lower_usd": 0.0078511,
+      "upper_usd": 0.0078511
+    },
+    {
+      "step": 76,
+      "input_tokens": 100045,
+      "output_tokens": 25,
+      "cached_input_tokens": 98432,
+      "lower_usd": 0.0052567,
+      "upper_usd": 0.0052567
+    },
+    {
+      "step": 77,
+      "input_tokens": 107271,
+      "output_tokens": 301,
+      "cached_input_tokens": 98752,
+      "lower_usd": 0.0067919,
+      "upper_usd": 0.0067919
+    },
+    {
+      "step": 78,
+      "input_tokens": 107816,
+      "output_tokens": 18,
+      "cached_input_tokens": 107520,
+      "lower_usd": 0.0054442,
+      "upper_usd": 0.0054442
+    },
+    {
+      "step": 79,
+      "input_tokens": 108182,
+      "output_tokens": 27,
+      "cached_input_tokens": 107776,
+      "lower_usd": 0.0054835,
+      "upper_usd": 0.0054835
+    },
+    {
+      "step": 80,
+      "input_tokens": 108432,
+      "output_tokens": 17,
+      "cached_input_tokens": 108160,
+      "lower_usd": 0.0054709,
+      "upper_usd": 0.0054709
+    },
+    {
+      "step": 81,
+      "input_tokens": 108793,
+      "output_tokens": 26,
+      "cached_input_tokens": 108416,
+      "lower_usd": 0.0055092,
+      "upper_usd": 0.0055092
+    },
+    {
+      "step": 82,
+      "input_tokens": 109039,
+      "output_tokens": 38,
+      "cached_input_tokens": 108800,
+      "lower_usd": 0.0055068,
+      "upper_usd": 0.0055068
+    },
+    {
+      "step": 83,
+      "input_tokens": 109373,
+      "output_tokens": 164,
+      "cached_input_tokens": null,
+      "lower_usd": 0.00555065,
+      "upper_usd": 0.0219566
+    },
+    {
+      "step": 84,
+      "input_tokens": 109791,
+      "output_tokens": 16,
+      "cached_input_tokens": 109312,
+      "lower_usd": 0.0055694,
+      "upper_usd": 0.0055694
+    },
+    {
+      "step": 85,
+      "input_tokens": 269636,
+      "output_tokens": 285,
+      "cached_input_tokens": 109760,
+      "lower_usd": 0.0376057,
+      "upper_usd": 0.0376057
+    },
+    {
+      "step": 86,
+      "input_tokens": 110440,
+      "output_tokens": 626,
+      "cached_input_tokens": 109056,
+      "lower_usd": 0.0060426,
+      "upper_usd": 0.0060426
+    },
+    {
+      "step": 87,
+      "input_tokens": 111426,
+      "output_tokens": 26,
+      "cached_input_tokens": 110848,
+      "lower_usd": 0.005671,
+      "upper_usd": 0.005671
+    },
+    {
+      "step": 88,
+      "input_tokens": 119513,
+      "output_tokens": 525,
+      "cached_input_tokens": 109760,
+      "lower_usd": 0.0077011,
+      "upper_usd": 0.0077011
+    },
+    {
+      "step": 89,
+      "input_tokens": 120398,
+      "output_tokens": 26,
+      "cached_input_tokens": 111424,
+      "lower_usd": 0.007379,
+      "upper_usd": 0.007379
+    },
+    {
+      "step": 90,
+      "input_tokens": 127568,
+      "output_tokens": 176,
+      "cached_input_tokens": 120384,
+      "lower_usd": 0.007544,
+      "upper_usd": 0.007544
+    },
+    {
+      "step": 91,
+      "input_tokens": 119782,
+      "output_tokens": 5,
+      "cached_input_tokens": 109760,
+      "lower_usd": 0.0074949,
+      "upper_usd": 0.0074949
+    },
+    {
+      "step": 92,
+      "input_tokens": 123027,
+      "output_tokens": 1695,
+      "cached_input_tokens": 111424,
+      "lower_usd": 0.0087393,
+      "upper_usd": 0.0087393
+    },
+    {
+      "step": 93,
+      "input_tokens": 124746,
+      "output_tokens": 1244,
+      "cached_input_tokens": 124672,
+      "lower_usd": 0.0068704,
+      "upper_usd": 0.0068704
+    },
+    {
+      "step": 1,
+      "input_tokens": 126288,
+      "output_tokens": 82,
+      "cached_input_tokens": null,
+      "lower_usd": 0.0063554,
+      "upper_usd": 0.0252986
+    },
+    {
+      "step": 2,
+      "input_tokens": 129732,
+      "output_tokens": 74,
+      "cached_input_tokens": 114688,
+      "lower_usd": 0.0087802,
+      "upper_usd": 0.0087802
+    },
+    {
+      "step": 3,
+      "input_tokens": 133433,
+      "output_tokens": 4750,
+      "cached_input_tokens": 129792,
+      "lower_usd": 0.0095928,
+      "upper_usd": 0.0095928
+    },
+    {
+      "step": 4,
+      "input_tokens": 138636,
+      "output_tokens": 149,
+      "cached_input_tokens": 129792,
+      "lower_usd": 0.0083329,
+      "upper_usd": 0.0083329
+    },
+    {
+      "step": 5,
+      "input_tokens": 138964,
+      "output_tokens": 974,
+      "cached_input_tokens": 138752,
+      "lower_usd": 0.007467,
+      "upper_usd": 0.007467
+    },
+    {
+      "step": 6,
+      "input_tokens": 140672,
+      "output_tokens": 800,
+      "cached_input_tokens": 139776,
+      "lower_usd": 0.007568,
+      "upper_usd": 0.007568
+    },
+    {
+      "step": 7,
+      "input_tokens": 142158,
+      "output_tokens": 161,
+      "cached_input_tokens": 141312,
+      "lower_usd": 0.0073153,
+      "upper_usd": 0.0073153
+    },
+    {
+      "step": 8,
+      "input_tokens": 142465,
+      "output_tokens": 679,
+      "cached_input_tokens": 142144,
+      "lower_usd": 0.0075109,
+      "upper_usd": 0.0075109
+    },
+    {
+      "step": 9,
+      "input_tokens": 143946,
+      "output_tokens": 172,
+      "cached_input_tokens": 143104,
+      "lower_usd": 0.0074096,
+      "upper_usd": 0.0074096
+    },
+    {
+      "step": 10,
+      "input_tokens": 144222,
+      "output_tokens": 1296,
+      "cached_input_tokens": 143936,
+      "lower_usd": 0.007902,
+      "upper_usd": 0.007902
+    },
+    {
+      "step": 11,
+      "input_tokens": 146451,
+      "output_tokens": 314,
+      "cached_input_tokens": 145408,
+      "lower_usd": 0.007636,
+      "upper_usd": 0.007636
+    },
+    {
+      "step": 12,
+      "input_tokens": 147016,
+      "output_tokens": 88,
+      "cached_input_tokens": 146688,
+      "lower_usd": 0.007444,
+      "upper_usd": 0.007444
+    },
+    {
+      "step": 13,
+      "input_tokens": 147206,
+      "output_tokens": 298,
+      "cached_input_tokens": 147008,
+      "lower_usd": 0.007539,
+      "upper_usd": 0.007539
+    },
+    {
+      "step": 14,
+      "input_tokens": 147613,
+      "output_tokens": 112,
+      "cached_input_tokens": 147456,
+      "lower_usd": 0.0074602,
+      "upper_usd": 0.0074602
+    },
+    {
+      "step": 15,
+      "input_tokens": 147870,
+      "output_tokens": 91,
+      "cached_input_tokens": 147712,
+      "lower_usd": 0.0074627,
+      "upper_usd": 0.0074627
+    },
+    {
+      "step": 16,
+      "input_tokens": 148067,
+      "output_tokens": 18,
+      "cached_input_tokens": 147840,
+      "lower_usd": 0.0074464,
+      "upper_usd": 0.0074464
+    },
+    {
+      "step": 17,
+      "input_tokens": 153829,
+      "output_tokens": 1433,
+      "cached_input_tokens": 148032,
+      "lower_usd": 0.0092775,
+      "upper_usd": 0.0092775
+    },
+    {
+      "step": 18,
+      "input_tokens": 155473,
+      "output_tokens": 151,
+      "cached_input_tokens": 148032,
+      "lower_usd": 0.0089653,
+      "upper_usd": 0.0089653
+    },
+    {
+      "step": 19,
+      "input_tokens": 155712,
+      "output_tokens": 7,
+      "cached_input_tokens": 153664,
+      "lower_usd": 0.0080963,
+      "upper_usd": 0.0080963
+    },
+    {
+      "step": 20,
+      "input_tokens": 160889,
+      "output_tokens": 173,
+      "cached_input_tokens": 155712,
+      "lower_usd": 0.0089075,
+      "upper_usd": 0.0089075
+    },
+    {
+      "step": 21,
+      "input_tokens": 161184,
+      "output_tokens": 7,
+      "cached_input_tokens": 161024,
+      "lower_usd": 0.0080867,
+      "upper_usd": 0.0080867
+    },
+    {
+      "step": 22,
+      "input_tokens": 164667,
+      "output_tokens": 107,
+      "cached_input_tokens": 161152,
+      "lower_usd": 0.0088141,
+      "upper_usd": 0.0088141
+    },
+    {
+      "step": 23,
+      "input_tokens": 164762,
+      "output_tokens": 7,
+      "cached_input_tokens": 161152,
+      "lower_usd": 0.0087831,
+      "upper_usd": 0.0087831
+    },
+    {
+      "step": 24,
+      "input_tokens": 167928,
+      "output_tokens": 20,
+      "cached_input_tokens": 164480,
+      "lower_usd": 0.0089236,
+      "upper_usd": 0.0089236
+    },
+    {
+      "step": 25,
+      "input_tokens": 168188,
+      "output_tokens": 2380,
+      "cached_input_tokens": 167936,
+      "lower_usd": 0.0096372,
+      "upper_usd": 0.0096372
+    },
+    {
+      "step": 26,
+      "input_tokens": 170884,
+      "output_tokens": 246,
+      "cached_input_tokens": 170496,
+      "lower_usd": 0.0087254,
+      "upper_usd": 0.0087254
+    },
+    {
+      "step": 27,
+      "input_tokens": 171366,
+      "output_tokens": 7,
+      "cached_input_tokens": 171008,
+      "lower_usd": 0.0086255,
+      "upper_usd": 0.0086255
+    },
+    {
+      "step": 28,
+      "input_tokens": 174651,
+      "output_tokens": 111,
+      "cached_input_tokens": 171328,
+      "lower_usd": 0.0092865,
+      "upper_usd": 0.0092865
+    },
+    {
+      "step": 29,
+      "input_tokens": 174870,
+      "output_tokens": 3561,
+      "cached_input_tokens": 171328,
+      "lower_usd": 0.0110553,
+      "upper_usd": 0.0110553
+    },
+    {
+      "step": 30,
+      "input_tokens": 178838,
+      "output_tokens": 462,
+      "cached_input_tokens": 178176,
+      "lower_usd": 0.0092722,
+      "upper_usd": 0.0092722
+    },
+    {
+      "step": 31,
+      "input_tokens": 179720,
+      "output_tokens": 661,
+      "cached_input_tokens": 179200,
+      "lower_usd": 0.0093945,
+      "upper_usd": 0.0093945
+    },
+    {
+      "step": 32,
+      "input_tokens": 180800,
+      "output_tokens": 1130,
+      "cached_input_tokens": 180224,
+      "lower_usd": 0.0096914,
+      "upper_usd": 0.0096914
+    },
+    {
+      "step": 33,
+      "input_tokens": 181977,
+      "output_tokens": 25,
+      "cached_input_tokens": 181760,
+      "lower_usd": 0.0091439,
+      "upper_usd": 0.0091439
+    },
+    {
+      "step": 34,
+      "input_tokens": 183085,
+      "output_tokens": 1240,
+      "cached_input_tokens": 181952,
+      "lower_usd": 0.0099442,
+      "upper_usd": 0.0099442
+    },
+    {
+      "step": 35,
+      "input_tokens": 185491,
+      "output_tokens": 448,
+      "cached_input_tokens": 184320,
+      "lower_usd": 0.0096742,
+      "upper_usd": 0.0096742
+    },
+    {
+      "step": 36,
+      "input_tokens": 186110,
+      "output_tokens": 107,
+      "cached_input_tokens": 185856,
+      "lower_usd": 0.0093971,
+      "upper_usd": 0.0093971
+    },
+    {
+      "step": 37,
+      "input_tokens": 186356,
+      "output_tokens": 65,
+      "cached_input_tokens": 186112,
+      "lower_usd": 0.0093869,
+      "upper_usd": 0.0093869
+    },
+    {
+      "step": 38,
+      "input_tokens": 186518,
+      "output_tokens": 188,
+      "cached_input_tokens": 186368,
+      "lower_usd": 0.0094424,
+      "upper_usd": 0.0094424
+    },
+    {
+      "step": 39,
+      "input_tokens": 186834,
+      "output_tokens": 28,
+      "cached_input_tokens": 186624,
+      "lower_usd": 0.0093872,
+      "upper_usd": 0.0093872
+    },
+    {
+      "step": 40,
+      "input_tokens": 190128,
+      "output_tokens": 13,
+      "cached_input_tokens": 186816,
+      "lower_usd": 0.0100097,
+      "upper_usd": 0.0100097
+    },
+    {
+      "step": 41,
+      "input_tokens": 190240,
+      "output_tokens": 1261,
+      "cached_input_tokens": 187648,
+      "lower_usd": 0.0105313,
+      "upper_usd": 0.0105313
+    },
+    {
+      "step": 42,
+      "input_tokens": 191898,
+      "output_tokens": 7,
+      "cached_input_tokens": 191488,
+      "lower_usd": 0.0096599,
+      "upper_usd": 0.0096599
+    },
+    {
+      "step": 43,
+      "input_tokens": 195040,
+      "output_tokens": 7,
+      "cached_input_tokens": 191872,
+      "lower_usd": 0.0102307,
+      "upper_usd": 0.0102307
+    },
+    {
+      "step": 44,
+      "input_tokens": 195308,
+      "output_tokens": 1013,
+      "cached_input_tokens": 195008,
+      "lower_usd": 0.0103169,
+      "upper_usd": 0.0103169
+    },
+    {
+      "step": 45,
+      "input_tokens": 196663,
+      "output_tokens": 7,
+      "cached_input_tokens": 196096,
+      "lower_usd": 0.0099217,
+      "upper_usd": 0.0099217
+    },
+    {
+      "step": 46,
+      "input_tokens": 199902,
+      "output_tokens": 460,
+      "cached_input_tokens": 196608,
+      "lower_usd": 0.0107192,
+      "upper_usd": 0.0107192
+    },
+    {
+      "step": 47,
+      "input_tokens": 181785,
+      "output_tokens": 7,
+      "cached_input_tokens": null,
+      "lower_usd": 0.00909275,
+      "upper_usd": 0.0363605
+    },
+    {
+      "step": 48,
+      "input_tokens": 182015,
+      "output_tokens": 1893,
+      "cached_input_tokens": 181760,
+      "lower_usd": 0.0100855,
+      "upper_usd": 0.0100855
+    },
+    {
+      "step": 49,
+      "input_tokens": 184283,
+      "output_tokens": 284,
+      "cached_input_tokens": 183808,
+      "lower_usd": 0.0094274,
+      "upper_usd": 0.0094274
+    },
+    {
+      "step": 50,
+      "input_tokens": 184845,
+      "output_tokens": 7,
+      "cached_input_tokens": 184320,
+      "lower_usd": 0.0093245,
+      "upper_usd": 0.0093245
+    },
+    {
+      "step": 51,
+      "input_tokens": 188066,
+      "output_tokens": 7,
+      "cached_input_tokens": 184832,
+      "lower_usd": 0.0098919,
+      "upper_usd": 0.0098919
+    },
+    {
+      "step": 52,
+      "input_tokens": 188341,
+      "output_tokens": 1637,
+      "cached_input_tokens": 188032,
+      "lower_usd": 0.0102819,
+      "upper_usd": 0.0102819
+    },
+    {
+      "step": 53,
+      "input_tokens": 190020,
+      "output_tokens": 33,
+      "cached_input_tokens": 189952,
+      "lower_usd": 0.0095277,
+      "upper_usd": 0.0095277
+    },
+    {
+      "step": 54,
+      "input_tokens": 190087,
+      "output_tokens": 25,
+      "cached_input_tokens": 190016,
+      "lower_usd": 0.0095275,
+      "upper_usd": 0.0095275
+    },
+    {
+      "step": 55,
+      "input_tokens": 191030,
+      "output_tokens": 204,
+      "cached_input_tokens": 190080,
+      "lower_usd": 0.009796,
+      "upper_usd": 0.009796
+    },
+    {
+      "step": 56,
+      "input_tokens": 191274,
+      "output_tokens": 14,
+      "cached_input_tokens": 191232,
+      "lower_usd": 0.009577,
+      "upper_usd": 0.009577
+    },
+    {
+      "step": 57,
+      "input_tokens": 191542,
+      "output_tokens": 2404,
+      "cached_input_tokens": 191232,
+      "lower_usd": 0.0108256,
+      "upper_usd": 0.0108256
+    },
+    {
+      "step": 58,
+      "input_tokens": 194004,
+      "output_tokens": 32,
+      "cached_input_tokens": 193792,
+      "lower_usd": 0.009748,
+      "upper_usd": 0.009748
+    },
+    {
+      "step": 59,
+      "input_tokens": 194257,
+      "output_tokens": 1929,
+      "cached_input_tokens": 193984,
+      "lower_usd": 0.0107183,
+      "upper_usd": 0.0107183
+    },
+    {
+      "step": 60,
+      "input_tokens": 196321,
+      "output_tokens": 7,
+      "cached_input_tokens": 196096,
+      "lower_usd": 0.0098533,
+      "upper_usd": 0.0098533
+    },
+    {
+      "step": 61,
+      "input_tokens": 197593,
+      "output_tokens": 23,
+      "cached_input_tokens": 196288,
+      "lower_usd": 0.0100869,
+      "upper_usd": 0.0100869
+    },
+    {
+      "step": 62,
+      "input_tokens": 197593,
+      "output_tokens": 2359,
+      "cached_input_tokens": 196288,
+      "lower_usd": 0.0112549,
+      "upper_usd": 0.0112549
+    },
+    {
+      "step": 63,
+      "input_tokens": 200153,
+      "output_tokens": 7,
+      "cached_input_tokens": 199936,
+      "lower_usd": 0.0100437,
+      "upper_usd": 0.0100437
+    },
+    {
+      "step": 64,
+      "input_tokens": 203370,
+      "output_tokens": 381,
+      "cached_input_tokens": 200128,
+      "lower_usd": 0.0108453,
+      "upper_usd": 0.0108453
+    },
+    {
+      "step": 65,
+      "input_tokens": 199415,
+      "output_tokens": 73,
+      "cached_input_tokens": null,
+      "lower_usd": 0.01000725,
+      "upper_usd": 0.0399195
+    },
+    {
+      "step": 66,
+      "input_tokens": 199728,
+      "output_tokens": 144,
+      "cached_input_tokens": 199424,
+      "lower_usd": 0.010104,
+      "upper_usd": 0.010104
+    },
+    {
+      "step": 67,
+      "input_tokens": 200202,
+      "output_tokens": 16,
+      "cached_input_tokens": 199680,
+      "lower_usd": 0.0100964,
+      "upper_usd": 0.0100964
+    },
+    {
+      "step": 68,
+      "input_tokens": 200511,
+      "output_tokens": 294,
+      "cached_input_tokens": 200192,
+      "lower_usd": 0.0102204,
+      "upper_usd": 0.0102204
+    },
+    {
+      "step": 69,
+      "input_tokens": 201090,
+      "output_tokens": 16,
+      "cached_input_tokens": 200704,
+      "lower_usd": 0.0101204,
+      "upper_usd": 0.0101204
+    },
+    {
+      "step": 70,
+      "input_tokens": 203922,
+      "output_tokens": 153,
+      "cached_input_tokens": 201088,
+      "lower_usd": 0.0106977,
+      "upper_usd": 0.0106977
+    },
+    {
+      "step": 71,
+      "input_tokens": 201221,
+      "output_tokens": 160,
+      "cached_input_tokens": 200192,
+      "lower_usd": 0.0102954,
+      "upper_usd": 0.0102954
+    },
+    {
+      "step": 72,
+      "input_tokens": 201698,
+      "output_tokens": 16,
+      "cached_input_tokens": 201216,
+      "lower_usd": 0.0101652,
+      "upper_usd": 0.0101652
+    },
+    {
+      "step": 73,
+      "input_tokens": 202428,
+      "output_tokens": 517,
+      "cached_input_tokens": 201664,
+      "lower_usd": 0.0104945,
+      "upper_usd": 0.0104945
+    },
+    {
+      "step": 74,
+      "input_tokens": 203277,
+      "output_tokens": 16,
+      "cached_input_tokens": 202752,
+      "lower_usd": 0.0102506,
+      "upper_usd": 0.0102506
+    },
+    {
+      "step": 75,
+      "input_tokens": 203588,
+      "output_tokens": 1106,
+      "cached_input_tokens": 203264,
+      "lower_usd": 0.010781,
+      "upper_usd": 0.010781
+    },
+    {
+      "step": 76,
+      "input_tokens": 204850,
+      "output_tokens": 101,
+      "cached_input_tokens": 204544,
+      "lower_usd": 0.0103389,
+      "upper_usd": 0.0103389
+    },
+    {
+      "step": 77,
+      "input_tokens": 205084,
+      "output_tokens": 7,
+      "cached_input_tokens": 204800,
+      "lower_usd": 0.0103003,
+      "upper_usd": 0.0103003
+    },
+    {
+      "step": 78,
+      "input_tokens": 208426,
+      "output_tokens": 59,
+      "cached_input_tokens": 205056,
+      "lower_usd": 0.0109563,
+      "upper_usd": 0.0109563
+    },
+    {
+      "step": 79,
+      "input_tokens": 208637,
+      "output_tokens": 7,
+      "cached_input_tokens": 208384,
+      "lower_usd": 0.0104733,
+      "upper_usd": 0.0104733
+    },
+    {
+      "step": 80,
+      "input_tokens": 211932,
+      "output_tokens": 218,
+      "cached_input_tokens": 208640,
+      "lower_usd": 0.0111994,
+      "upper_usd": 0.0111994
+    },
+    {
+      "step": 81,
+      "input_tokens": 208972,
+      "output_tokens": 81,
+      "cached_input_tokens": 199424,
+      "lower_usd": 0.0119213,
+      "upper_usd": 0.0119213
+    },
+    {
+      "step": 82,
+      "input_tokens": 209371,
+      "output_tokens": 16,
+      "cached_input_tokens": 199488,
+      "lower_usd": 0.011959,
+      "upper_usd": 0.011959
+    },
+    {
+      "step": 83,
+      "input_tokens": 210532,
+      "output_tokens": 253,
+      "cached_input_tokens": 209344,
+      "lower_usd": 0.0108313,
+      "upper_usd": 0.0108313
+    },
+    {
+      "step": 84,
+      "input_tokens": 210920,
+      "output_tokens": 7,
+      "cached_input_tokens": 210688,
+      "lower_usd": 0.0105843,
+      "upper_usd": 0.0105843
+    },
+    {
+      "step": 85,
+      "input_tokens": 212071,
+      "output_tokens": 7,
+      "cached_input_tokens": 210880,
+      "lower_usd": 0.0107857,
+      "upper_usd": 0.0107857
+    },
+    {
+      "step": 86,
+      "input_tokens": 212345,
+      "output_tokens": 980,
+      "cached_input_tokens": 212032,
+      "lower_usd": 0.0111542,
+      "upper_usd": 0.0111542
+    },
+    {
+      "step": 87,
+      "input_tokens": 213826,
+      "output_tokens": 7,
+      "cached_input_tokens": 213248,
+      "lower_usd": 0.0107815,
+      "upper_usd": 0.0107815
+    },
+    {
+      "step": 88,
+      "input_tokens": 217103,
+      "output_tokens": 42,
+      "cached_input_tokens": 213824,
+      "lower_usd": 0.011368,
+      "upper_usd": 0.011368
+    },
+    {
+      "step": 89,
+      "input_tokens": 217224,
+      "output_tokens": 1544,
+      "cached_input_tokens": 213824,
+      "lower_usd": 0.0121432,
+      "upper_usd": 0.0121432
+    },
+    {
+      "step": 90,
+      "input_tokens": 220312,
+      "output_tokens": 5,
+      "cached_input_tokens": 218624,
+      "lower_usd": 0.0112713,
+      "upper_usd": 0.0112713
+    },
+    {
+      "step": 91,
+      "input_tokens": 231661,
+      "output_tokens": 173,
+      "cached_input_tokens": 220288,
+      "lower_usd": 0.0133755,
+      "upper_usd": 0.0133755
+    },
+    {
+      "step": 92,
+      "input_tokens": 231951,
+      "output_tokens": 1494,
+      "cached_input_tokens": 220288,
+      "lower_usd": 0.014094,
+      "upper_usd": 0.014094
+    }
+  ]
+}
