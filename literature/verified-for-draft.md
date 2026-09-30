@@ -1,7 +1,7 @@
 ---
 title: "Verified related work for the first manuscript draft"
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-09-22
 type: literature
 tags: [research]
 sources: ["../raw/literature/paper-draft-2026-09-19/metadata.json"]
@@ -37,3 +37,12 @@ Additional primary records and full texts are archived in [the preparation sourc
 | Context-Folding, Sun et al. | [PDF](https://arxiv.org/pdf/2510.11967), sections 2.2–2.3 | Branch/return context transitions and FoldGRPO verified from full text, closing the initial project-summary-only limitation. |
 
 This remains a targeted mechanism comparison, not an exhaustive systematic review or proof of novelty. No source establishes the uniqueness of archives, recovery, stable IDs, or acting-agent curation. The contribution is framed as a concrete interface and exploratory empirical study. AgentFold has an ICLR 2026 record surfaced during search; the manuscript cites the specific arXiv version actually inspected rather than importing unverified proceedings metadata.
+
+## Literature revision, 22 September 2026
+
+Versioned sources and checksums: [retrieval manifest](../work/literature/acon-acm-2026-09-22/sources.json). [Reading notes](../work/literature/acon-acm-2026-09-22/review.md).
+
+- `kang_2025_acon`: [ACON v3](https://arxiv.org/html/2510.00615v3), Sections 3–4 and Appendix A. Guideline optimization, threshold-triggered history/observation compression, separate compressor, optional distillation. Section 4.5 includes acting and compression costs but excludes input caching. First-submission year 2025; inspected revision 1 June 2026.
+- `li_2026_acm`: [ACM v1](https://arxiv.org/html/2607.23809v1), Sections 3–6 and Appendix B. Agent-initiated interval summarization, archived raw messages, LLM-mediated extraction on recall. Both base framework and post-trained policy evaluated. First submitted 26 July 2026.
+
+The manuscript distinguishes per-result selection, acting-model notes, protected instruction/assistant messages and exact payload recovery. These are mechanism distinctions, not evidence of superiority over these unevaluated baselines. No numerical cross-paper comparison is made.

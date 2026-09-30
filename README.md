@@ -1,8 +1,8 @@
 # Agent-controlled forgetting: research artifacts
 
-Jan-Peter Franke · Münster, Germany · 19 September 2026
+Jan-Peter Franke · Münster, Germany · 30 September 2026
 
-This repository accompanies *Agent-Controlled Forgetting for Tool-Using Agents: Reversible Context Curation in Practice*. The paper and versioned artifact archives are available from the [release page](https://github.com/boldprojekte/agent-forgetting-research/releases/tag/v1.0.0). arXiv submission is in progress.
+This repository accompanies *Agent-Controlled Forgetting for Tool-Using Agents: Reversible Context Curation in Practice*. The paper and versioned artifact archives are available from the [release page](https://github.com/boldprojekte/agent-forgetting-research/releases/tag/v1.0.1). The v1.0.1 paper incorporates the 22 September literature revision: ACON and ACM are discussed and cited in the 12-page PDF with 14 references. Experimental results and the origin statement are unchanged. arXiv submission is pending cs.AI endorsement.
 
 ## What can be checked here
 

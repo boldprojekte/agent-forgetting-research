@@ -1,6 +1,6 @@
 {
   "created": "2026-09-19",
-  "status": "author-approved public release v1.0.0",
+  "status": "v1.0.1 research package; literature revision of 22 September 2026",
   "files": [
     {
       "path": "pyproject.toml",
@@ -12439,13 +12439,15 @@
     },
     {
       "path": "paper/references.bib",
-      "sha256": "176392d1eede13daf2f73ed8336e91ffe97bb5fa704a9506dedf5df74b2943e1",
-      "bytes": 4418
+      "sha256": "b54eb2cb0b1950e157120918e0bff7e7b02fc8d5683e806c2ba0e3b784972961",
+      "bytes": 5172
     },
     {
       "path": "paper/claim-evidence.md",
-      "sha256": "45e88681a71e7ecfbb3029a59478bea5fd5607e5e4e73f5b98b54094a9e80edb",
-      "bytes": 9907
+      "sha256": "634ed0216e60de790505b7c66bc9249345fd80e1fb4aa0ecda8203200f852d2a",
+      "bytes": 10241
     }
-  ]
+  ],
+  "updated": "2026-09-30",
+  "revision": "ACON and ACM literature update; copied-source records updated where applicable; final distributed files are covered by PACKAGE_SHA256.json."
 }

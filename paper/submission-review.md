@@ -54,3 +54,7 @@ The paper is an original exploratory systems report, not a literature survey or 
 - [CS content-type policy](https://blog.arxiv.org/2025/10/31/attention-authors-updated-practice-for-review-articles-and-position-papers-in-arxiv-cs-category/): separate rules for surveys and position papers; do not mislabel this empirical report.
 
 [Manuscript](manuscript.md) · [Status](../status.md)
+
+## 22 September 2026: local literature revision
+
+Added ACON and ACM to related work, bibliography and baseline/cost discussion. Origin statement and empirical results unchanged. Twelve-page PDF visually inspected; 14 references; extracted source ZIP independently compiles with identical PDF text. All 37 frozen hashes and 306 usage rows pass. No model runs or new uploads. Previous GitHub v1.0.0 remains public; arXiv submission 8103008 is incomplete pending endorsement.

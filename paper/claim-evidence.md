@@ -1,7 +1,7 @@
 ---
 title: "Manuscript claim and evidence map"
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-09-22
 type: evidence
 tags: [research]
 sources: ["manuscript.md", "../evaluation/otel-checkout-noise-03/manifest.json", "../literature/verified-for-draft.md"]
@@ -76,3 +76,7 @@ Run `uv run --no-project paper/build_figures.py` from the workspace to rebuild t
 ## Submission review
 
 [Preparation review](submission-review.md) records the source-level grader audit, expanded literature comparison and release limitations. [Submission metadata](submission-metadata.json) uses the author's supplied name, location and contact email; manuscript affiliation and license remain unset. The verified account uses Independent Researcher as its profile affiliation. The package arithmetic verifier checks all 37 frozen inputs and 306 usage rows. The local artifact release deliberately omits full provider traces and archive payloads, so archive equality remains an author-verified finding rather than independently reproducible from the released hashes alone.
+
+## Related-work revision, 22 September 2026
+
+ACON and ACM mechanism distinctions and the cache-accounting qualification are grounded in [verified literature](../literature/verified-for-draft.md). Both remain unevaluated comparison methods. Empirical claims, original results and the February 2026 provenance statement are unchanged.
