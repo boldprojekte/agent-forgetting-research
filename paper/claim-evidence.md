@@ -1,7 +1,7 @@
 ---
 title: "Manuscript claim and evidence map"
 created: 2026-09-19
-updated: 2026-09-22
+updated: 2026-10-06
 type: evidence
 tags: [research]
 sources: ["manuscript.md", "../evaluation/otel-checkout-noise-03/manifest.json", "../literature/verified-for-draft.md"]
@@ -80,3 +80,7 @@ Run `uv run --no-project paper/build_figures.py` from the workspace to rebuild t
 ## Related-work revision, 22 September 2026
 
 ACON and ACM mechanism distinctions and the cache-accounting qualification are grounded in [verified literature](../literature/verified-for-draft.md). Both remain unevaluated comparison methods. Empirical claims, original results and the February 2026 provenance statement are unchanged.
+
+## Related-work revision, 6 October 2026
+
+The CLM mechanism comparison is grounded in [verified literature](../literature/verified-for-draft.md) and its versioned primary-source manifest. The protected-instruction claim is scoped to the context operations in `forgetting_agent/context.py`: eligible IDs name tool results, and apply replaces only messages with role `tool`. A separate compaction that summarizes instruction messages falls outside this guarantee. Preservation of the text does not prove instruction compliance. CLM remains unevaluated here; empirical results and the origin statement are unchanged.

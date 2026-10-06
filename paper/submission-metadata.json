@@ -17,7 +17,7 @@
   "suggested_data_license": "CC BY 4.0 for author-owned derived numerical records only",
   "arxiv_account_status": "Created and email verified; username janpeterfranke.",
   "endorsement_status": "Required for cs.AI; arXiv sent the endorsement-code email to franke@bold-projekte.com on 2026-09-19",
-  "publication_status": "Paper and research artifacts published on GitHub v1.0.1; arXiv submission remains incomplete pending cs.AI endorsement",
+  "publication_status": "Paper and research artifacts prepared for GitHub v1.0.2; last recorded arXiv submission status remains incomplete pending cs.AI endorsement",
   "public_artifact_url": "https://github.com/boldprojekte/agent-forgetting-research",
   "arxiv_account_profile": {
     "affiliation": "Independent Researcher",
@@ -27,7 +27,7 @@
   },
   "code_license": "MIT",
   "data_license": "CC BY 4.0 for author-owned derived numerical records only",
-  "public_release_url": "https://github.com/boldprojekte/agent-forgetting-research/releases/tag/v1.0.1",
-  "local_revision": "2026-09-22: ACON and ACM added; PDF and source package rebuilt",
-  "release_version": "v1.0.1"
+  "public_release_url": "https://github.com/boldprojekte/agent-forgetting-research/releases/tag/v1.0.2",
+  "local_revision": "2026-10-06: Short CLM comparison and instruction-preservation boundary added; experimental results unchanged",
+  "release_version": "v1.0.2"
 }

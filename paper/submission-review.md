@@ -1,7 +1,7 @@
 ---
 title: "Prepublication review and remaining decisions"
 created: 2026-09-19
-updated: 2026-09-19
+updated: 2026-10-06
 type: evidence
 tags: [research]
 sources: ["manuscript.md", "claim-evidence.md", "../literature/verified-for-draft.md"]
@@ -58,3 +58,9 @@ The paper is an original exploratory systems report, not a literature survey or 
 ## 22 September 2026: local literature revision
 
 Added ACON and ACM to related work, bibliography and baseline/cost discussion. Origin statement and empirical results unchanged. Twelve-page PDF visually inspected; 14 references; extracted source ZIP independently compiles with identical PDF text. All 37 frozen hashes and 306 usage rows pass. No model runs or new uploads. Previous GitHub v1.0.0 remains public; arXiv submission 8103008 is incomplete pending endorsement.
+
+## CLM revision, 6 October 2026
+
+A short Related Work paragraph and verified reference for Context Language Models (arXiv:2609.37725v1, first submitted 29 September 2026) were added. It distinguishes general live-context editing from our restricted tool-result contract. Verbatim human instructions remain protected under our context operations; a separate compaction that summarizes instruction messages falls outside this guarantee, and text preservation does not establish compliance. CLM has not been evaluated against our method.
+
+The revised PDF has 13 pages and 15 references. All pages were visually inspected, including the new paragraph on page 3 and the bibliography. The source ZIP compiles independently with Tectonic; extracted PDF text matches the reviewed build exactly. Reference entries are kept together across page boundaries. Abstract, introduction, method, results, discussion and limitations were checked against the prior manuscript and are unchanged. All 37 frozen input hashes and 306 usage rows pass the arithmetic verifier. No new inference or behavioral benchmark was run.

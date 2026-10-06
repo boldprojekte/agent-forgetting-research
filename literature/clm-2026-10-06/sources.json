@@ -1,0 +1,62 @@
+{
+  "retrieved": "2026-10-06",
+  "arxiv_id": "2609.37725",
+  "version": "v1",
+  "status": "preprint",
+  "metadata": {
+    "citation_title": [
+      "Context Language Models"
+    ],
+    "citation_author": [
+      "Shao, Rulin",
+      "Shen, Shannon Zejiang",
+      "Yin, Junjie Oscar",
+      "Li, Yuetai",
+      "Wang, Minheng",
+      "Ivison, Hamish",
+      "Poovendran, Radha",
+      "Lambert, Nathan",
+      "Xiao, Teng",
+      "Lewis, Mike",
+      "Yih, Wen-tau",
+      "Zettlemoyer, Luke",
+      "Koh, Pang Wei"
+    ],
+    "citation_date": [
+      "2026/09/29"
+    ],
+    "citation_online_date": [
+      "2026/09/29"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2609.37725"
+    ],
+    "citation_arxiv_id": [
+      "2609.37725"
+    ]
+  },
+  "sections_read": [
+    "Abstract",
+    "4.1",
+    "4.2",
+    "5.2",
+    "6",
+    "Appendix A: Context management and external memory",
+    "Appendix D: KV Store instructions",
+    "Appendix E: In-context steering"
+  ],
+  "claim_scope": "Mechanism comparison only; no quantitative comparison or superiority claim.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2609.37725v1",
+      "sha256": "826b49e08b1bc393a756ea54471349d5a6685ef7e14e610010f23b41a0e2eebd",
+      "bytes": 43300
+    },
+    {
+      "url": "https://arxiv.org/html/2609.37725v1",
+      "sha256": "3021dd4b5b2af535c6927797d40d7abda626bd3d0d8c172af69ad67e0e643827",
+      "bytes": 421909
+    }
+  ],
+  "snapshots": "Primary HTML snapshots retained locally; third-party literature copies are excluded from the public package."
+}

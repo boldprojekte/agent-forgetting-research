@@ -1,6 +1,6 @@
 {
   "created": "2026-09-19",
-  "status": "v1.0.1 research package; literature revision of 22 September 2026",
+  "status": "Prepared research release v1.0.2",
   "files": [
     {
       "path": "pyproject.toml",
@@ -12439,15 +12439,20 @@
     },
     {
       "path": "paper/references.bib",
-      "sha256": "b54eb2cb0b1950e157120918e0bff7e7b02fc8d5683e806c2ba0e3b784972961",
-      "bytes": 5172
+      "sha256": "a909dcaab306eaa0787fe5625d06d941e340a870b6ed3b71ceac8e9ecb584804",
+      "bytes": 5657
     },
     {
       "path": "paper/claim-evidence.md",
-      "sha256": "634ed0216e60de790505b7c66bc9249345fd80e1fb4aa0ecda8203200f852d2a",
-      "bytes": 10241
+      "sha256": "a3cc1ad22ef941fd5a6bfe8ddc3e4d3df2288cb4800ca6862863bd3f05a1044e",
+      "bytes": 10856
+    },
+    {
+      "path": "literature/clm-2026-10-06/sources.json",
+      "sha256": "982913d1f0409f1565a564149eeca58b466a0e50892b44374492eb0c2134144a",
+      "bytes": 1563
     }
   ],
-  "updated": "2026-09-30",
-  "revision": "ACON and ACM literature update; copied-source records updated where applicable; final distributed files are covered by PACKAGE_SHA256.json."
+  "updated": "2026-10-06",
+  "revision": "CLM related-work paragraph and instruction-preservation boundary; results unchanged"
 }

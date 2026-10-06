@@ -1,7 +1,7 @@
 ---
 title: "Agent-Controlled Forgetting for Tool-Using Agents: Reversible Context Curation in Practice"
 created: 2026-09-19
-updated: 2026-09-22
+updated: 2026-10-06
 type: paper
 tags: [research]
 sources: ["../evidence/otel-checkout-noise-03-pair/metrics.json", "../evidence/planroom-v12-pair/metrics.json", "../evidence/sphinx-manifest-01/metrics.json", "../evidence/browser-fourth-01.md", "../literature/verified-for-draft.md", "../evidence/provenance.md", "../notes/tool-noise-rationale.md", "../notes/reversible-compaction.md"]
@@ -13,7 +13,7 @@ sources: ["../evidence/otel-checkout-noise-03-pair/metrics.json", "../evidence/p
 Münster, Germany  
 [franke@bold-projekte.com](mailto:franke@bold-projekte.com)
 
-*Preprint preparation, 19 September 2026. Results are exploratory; this version has not been peer reviewed.*
+*Preprint revision, 6 October 2026. Results are exploratory; this version has not been peer reviewed.*
 
 ## Abstract
 
@@ -52,6 +52,8 @@ The report contributes: (1) a concrete reversible tool-result contract with stab
 **Compression policies and archival.** [Kang et al.](https://arxiv.org/abs/2510.00615) introduce ACON, which optimizes compression guidelines from trajectory feedback and uses a separate model to compress histories or observations at token thresholds. Our interface instead lets the acting model retrospectively select individual tool results and author their replacement notes. [Li et al.](https://arxiv.org/abs/2607.23809) introduce ACM, which shares agent-initiated management and archival of raw messages, but summarizes message intervals with a separate LLM and retrieves query-relevant extracts through another model. Our contract preserves user, system and assistant messages and returns exact archived payloads on recovery. ACM evaluates both an untrained management framework and a post-trained policy; absence of task-specific training alone is therefore not a distinguishing feature.
 
 **Provider-side editing.** [Anthropic's context-editing documentation](https://platform.claude.com/docs/en/build-with-claude/context-editing) describes threshold-triggered removal of older tool results with placeholders, while the client retains the original conversation. It also documents cache invalidation when results are cleared. This provides a practical comparison point for rule-based editing. Our model-selected notes and explicit recovery interface are choices within this broader design space; no provider-side baseline is evaluated here.
+
+**Freely editable context.** [Shao et al.](https://arxiv.org/abs/2609.37725) introduce Context Language Models (CLMs), giving the acting model general read-write access to its live context through a mirrored file, including offloading and retrieval. Our interface restricts edits to individual tool-result occurrences, automatically archives exact originals, and preserves user, system, and assistant messages. Human instructions therefore remain a verbatim task anchor under our context operations. This preservation guarantee does not extend to a separate compaction process that summarizes those messages, nor does it guarantee instruction compliance. We have not compared against CLM.
 
 **Positioning.** Pre-exposure retrieval and filtering can reduce what the agent initially receives. Post-exposure curation can additionally exploit conclusions reached after inspection. This timing distinction does not imply that filters are intrinsically inferior: iterative retrieval, query refinement, and programmatic processing can also adapt to task state. Our retained-history comparator isolates a practical policy bundle, not the best available context-management baseline. The targeted literature review does not establish novelty of the full combination of archival, notes, identifiers, and recovery.
 
@@ -264,3 +266,5 @@ The harness and this manuscript were developed with AI assistance under the auth
 
 - Kang, Minki; Chen, Wei-Ning; Han, Dongge; Inan, Huseyin A.; Wutschitz, Lukas; Chen, Yanzhi; Sim, Robert; Rajmohan, Saravan. 2025. [ACON: Optimizing Context Compression for Long-horizon LLM Agents](https://arxiv.org/abs/2510.00615). arXiv:2510.00615. Version 3 inspected.
 - Li, Xiaochuan; Ming, Ryan; Chu, Meng; Shao, Shuai; Jin, Rong; Xiong, Chenyan. 2026. [ACM: Agentic Context Management for Long Horizon Tasks](https://arxiv.org/abs/2607.23809). arXiv:2607.23809. Version 1 inspected.
+
+- Shao, Rulin; Shen, Shannon Zejiang; Yin, Junjie Oscar; Li, Yuetai; Wang, Minheng; Ivison, Hamish; Poovendran, Radha; Lambert, Nathan; Xiao, Teng; Lewis, Mike; Yih, Wen-tau; Zettlemoyer, Luke; Koh, Pang Wei. 2026. [Context Language Models](https://arxiv.org/abs/2609.37725). arXiv:2609.37725. Version 1 inspected.

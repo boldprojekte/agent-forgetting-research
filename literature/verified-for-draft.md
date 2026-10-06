@@ -1,7 +1,7 @@
 ---
 title: "Verified related work for the first manuscript draft"
 created: 2026-09-19
-updated: 2026-09-22
+updated: 2026-10-06
 type: literature
 tags: [research]
 sources: ["../raw/literature/paper-draft-2026-09-19/metadata.json"]
@@ -46,3 +46,9 @@ Versioned sources and checksums: [retrieval manifest](../work/literature/acon-ac
 - `li_2026_acm`: [ACM v1](https://arxiv.org/html/2607.23809v1), Sections 3–6 and Appendix B. Agent-initiated interval summarization, archived raw messages, LLM-mediated extraction on recall. Both base framework and post-trained policy evaluated. First submitted 26 July 2026.
 
 The manuscript distinguishes per-result selection, acting-model notes, protected instruction/assistant messages and exact payload recovery. These are mechanism distinctions, not evidence of superiority over these unevaluated baselines. No numerical cross-paper comparison is made.
+
+## Literature revision, 6 October 2026
+
+- `shao_2026_context`: [Context Language Models v1](https://arxiv.org/html/2609.37725v1), Sections 4.1–4.2 and 6, Appendix A on external memory, Appendix D on KV Store offloading and retrieval, and Section 5.2 / Appendix E on backup steering. First submitted 29 September 2026. CLM exposes general editing of a mirrored live-context file to the acting model and also permits external storage and retrieval. These shared concepts do not distinguish our method by themselves.
+
+The added Related Work paragraph distinguishes the narrower tool-result contract, automatic exact-original archival, and protected user, system and assistant messages. The human instruction text is preserved by our context operations; this does not cover a separate compaction process that summarizes those messages or establish instruction compliance. No CLM comparison was run, and no cross-paper performance claim is made. Primary record and HTML snapshots with hashes are preserved in [the source manifest](clm-2026-10-06/sources.json).
