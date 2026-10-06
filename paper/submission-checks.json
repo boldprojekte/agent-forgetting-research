@@ -1,12 +1,12 @@
 {
   "date": "2026-10-06",
-  "status": "Verified CLM literature revision prepared for GitHub v1.0.2",
+  "status": "Verified CC BY 4.0 license revision prepared for GitHub v1.0.3",
   "author": "Jan-Peter Franke",
   "contact": "franke@bold-projekte.com",
   "pdf_pages": 13,
-  "pdf_sha256": "4ab125c06f2e7a92dca902ab107c86df87084c1bc382a2b1cc4d98bcab967489",
-  "source_zip_sha256": "70a766b07cdc3e0599e48a0fac388ce012971b1b6a3b278f4d14714d21f12095",
-  "visual_review": "All 13 pages inspected, including the CLM paragraph and references; reference entries kept together across page boundaries",
+  "pdf_sha256": "33ac93c454bd0f3d442c8ac0025fe9423784aa784b885cea248a5feada2f3494",
+  "source_zip_sha256": "5c3ef376528461bd0b7409d7e24904b4f6feb0a3793a4b5ee62b8d75a32d718a",
+  "visual_review": "All 13 pages inspected, including the CC BY 4.0 notice on page 12",
   "independent_source_build": "passed; extracted PDF text identical",
   "focused_offline_tests_passed": 28,
   "frozen_input_hashes_verified": 37,
@@ -14,8 +14,9 @@
   "references": 15,
   "live_clean_host_reproduction": false,
   "new_inference_runs": 0,
-  "revision": "Short CLM related-work paragraph and scoped instruction-preservation guarantee; experimental results and origin statement unchanged",
-  "focused_offline_tests_note": "28 passed during initial packaging; no mechanism tests rerun for this prose revision because harness code is unchanged",
-  "arithmetic_recheck": "37 frozen hashes and 306 usage rows verified on 6 October 2026",
-  "release_version": "v1.0.2"
+  "revision": "Author-approved CC BY 4.0 paper license; scientific text unchanged apart from license sentence",
+  "focused_offline_tests_note": "28 passed during initial packaging; no mechanism tests rerun for this license revision because harness code is unchanged",
+  "arithmetic_recheck": "37 frozen hashes and 306 usage rows verified on 6 October 2026 before the license-only revision; all research files remain byte-identical",
+  "release_version": "v1.0.3",
+  "paper_license": "CC BY 4.0"
 }

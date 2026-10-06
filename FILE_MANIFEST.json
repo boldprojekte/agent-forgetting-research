@@ -1,6 +1,6 @@
 {
   "created": "2026-09-19",
-  "status": "Prepared research release v1.0.2",
+  "status": "Prepared research release v1.0.3",
   "files": [
     {
       "path": "pyproject.toml",
@@ -12454,5 +12454,5 @@
     }
   ],
   "updated": "2026-10-06",
-  "revision": "CLM related-work paragraph and instruction-preservation boundary; results unchanged"
+  "revision": "CC BY 4.0 paper license; research content unchanged"
 }

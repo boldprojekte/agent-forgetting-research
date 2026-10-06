@@ -35,7 +35,7 @@ The author-approved revision consolidates repeated caveats into Section 7, round
 
 The revised 12-page PDF was visually reviewed, including figures, tables and references. The LaTeX log has no reported warnings or overflow. The source ZIP compiles independently with Tectonic 0.17.0 (XeLaTeX); its extracted PDF text matches the reviewed build. All 28 focused tests pass using the staged code. Arithmetic checks cover 37 frozen input files and 306 usage rows. The release candidate was scanned for exact local credential values and private-key headers, with no matches; this is a scoped check, not a universal secret-detection guarantee.
 
-## Decisions needed before uploading
+## Initial preparation decisions, 19 September 2026 (historical)
 
 1. Author review of the actual PDF, contribution framing, results and limitations.
 2. arXiv account created and email verified; endorsement requirements have not yet been checked. Contact email is confirmed. Suggested category: `cs.AI`, subject to arXiv moderation.
@@ -64,3 +64,7 @@ Added ACON and ACM to related work, bibliography and baseline/cost discussion. O
 A short Related Work paragraph and verified reference for Context Language Models (arXiv:2609.37725v1, first submitted 29 September 2026) were added. It distinguishes general live-context editing from our restricted tool-result contract. Verbatim human instructions remain protected under our context operations; a separate compaction that summarizes instruction messages falls outside this guarantee, and text preservation does not establish compliance. CLM has not been evaluated against our method.
 
 The revised PDF has 13 pages and 15 references. All pages were visually inspected, including the new paragraph on page 3 and the bibliography. The source ZIP compiles independently with Tectonic; extracted PDF text matches the reviewed build exactly. Reference entries are kept together across page boundaries. Abstract, introduction, method, results, discussion and limitations were checked against the prior manuscript and are unchanged. All 37 frozen input hashes and 306 usage rows pass the arithmetic verifier. No new inference or behavioral benchmark was run.
+
+## Paper license revision, 6 October 2026
+
+The author approved CC BY 4.0 for the paper and its original figures. The manuscript notice, submission metadata and public licensing scopes reflect this decision. Original research code remains MIT, author-owned derived numerical records remain CC BY 4.0, and third-party notices retain their original scope. The scientific text is unchanged apart from its license sentence. The current arXiv form has CC BY 4.0 selected; the submission agreement and source upload remain pending.
